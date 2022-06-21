@@ -5,4 +5,6 @@ module com.ciencias.puntoventajavafxmvc {
 
     opens com.ciencias.puntoventajavafxmvc to javafx.fxml;
     exports com.ciencias.puntoventajavafxmvc;
+    exports com.ciencias.puntoventajavafxmvc.controller;
+    opens com.ciencias.puntoventajavafxmvc.controller to javafx.fxml;
 }

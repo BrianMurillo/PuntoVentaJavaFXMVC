@@ -64,3 +64,7 @@
 .styleCursorHand{
     -fx-cursor: hand;
 }
+
+.styleRotate:pressed{
+    -fx-rotate: 30px;
+}

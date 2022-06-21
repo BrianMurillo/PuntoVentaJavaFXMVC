@@ -5,8 +5,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
@@ -44,6 +46,9 @@ public class LoginController implements Initializable {
     @FXML
     private ImageView imageClose;
 
+    //Mensajes
+    Alert msjConfirmación = new Alert(Alert.AlertType.CONFIRMATION);
+
     //Contador ver
     private int cont=1;
 
@@ -77,5 +82,27 @@ public class LoginController implements Initializable {
                 txtPassView.setVisible(false);
             }
         }
+
+        if(event.getSource() == imageMinimizar){
+            Stage stage = (Stage) this.btnLogin.getScene().getWindow();
+            stage.setIconified(true);
+        }
+
+        if(event.getSource() == imageClose){
+            Optional<ButtonType> result =mensajeConfirmación(msjConfirmación,"Confirmación", "¿Desea Salir?");
+            if(result.get() == ButtonType.OK){
+                Stage stage = (Stage) this.btnLogin.getScene().getWindow();
+                stage.close();
+            }
+        }
     }
+
+    public Optional<ButtonType> mensajeConfirmación(Alert alert, String titulo, String contenido){
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(contenido);
+        Optional<ButtonType> result = alert.showAndWait();
+        return result;
+    }
+
 }

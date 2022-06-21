@@ -7,6 +7,10 @@
     -fx-background-color: #F2F2F2;
 }
 
+.backgroundWhite{
+    -fx-background-color: #FFFFFF;
+}
+
 .buttonSignin{
     -fx-background-color: #87A7FF;
     -fx-background-radius: 10px;
@@ -67,4 +71,19 @@
 
 .styleRotate:pressed{
     -fx-rotate: 30px;
+}
+
+.styleRadius{
+    -fx-background-color: #F2F2F2;
+    -fx-background-radius: 10px;
+}
+
+.styleRadius:hover{
+    -fx-border-color: #87A7FF;
+    -fx-border-radius: 10px;
+}
+
+.styleForms{
+    -fx-fill: #D9D9D9;
+    -fx-stroke: #D9D9D9;
 }

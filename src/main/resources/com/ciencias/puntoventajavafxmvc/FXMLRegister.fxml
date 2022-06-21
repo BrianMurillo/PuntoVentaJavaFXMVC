@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.CubicCurve?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="715.0" prefWidth="1024.0" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ciencias.puntoventajavafxmvc.controller.RegisterController">
+   <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane prefHeight="571.0" prefWidth="780.0" styleClass="backgroundWhite" HBox.hgrow="ALWAYS">
+         <VBox alignment="CENTER" layoutX="44.0" layoutY="14.0" prefHeight="688.0" prefWidth="356.0" styleClass="backgroundLogin">
+            <effect>
+               <DropShadow height="14.5" offsetX="-3.0" offsetY="2.0" radius="6.7875" width="14.65">
+                  <color>
+                     <Color red="0.43421053886413574" green="0.42415934801101685" blue="0.42415934801101685" />
+                  </color>
+               </DropShadow>
+            </effect>
+            <ImageView fitHeight="100.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@img/register.png" />
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </ImageView>
+            <HBox prefHeight="50.0" prefWidth="356.0">
+               <Pane prefHeight="200.0" prefWidth="200.0">
+                  <Separator layoutX="16.0" layoutY="24.0" prefHeight="3.0" prefWidth="103.0" />
+               </Pane>
+               <Pane prefHeight="200.0" prefWidth="200.0">
+                  <Label alignment="CENTER" layoutX="-4.0" layoutY="1.0" prefHeight="50.0" prefWidth="125.0" styleClass="textFontStyle" text="Sign Up">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+               </Pane>
+               <Pane prefHeight="200.0" prefWidth="200.0">
+                  <Separator layoutY="24.0" prefHeight="3.0" prefWidth="103.0" />
+               </Pane>
+            </HBox>
+            <VBox prefHeight="544.0" prefWidth="356.0">
+               <padding>
+                  <Insets left="30.0" right="30.0" />
+               </padding>
+               <HBox prefHeight="46.0" prefWidth="296.0" styleClass="borderTextFieldlLogin">
+                  <VBox.margin>
+                     <Insets top="5.0" />
+                  </VBox.margin>
+                  <Pane prefHeight="200.0" prefWidth="200.0" styleClass="styletextFieldLeft">
+                     <ImageView fitHeight="35.0" fitWidth="30.0" layoutX="5.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@img/user.png" />
+                     </ImageView>
+                     <Separator layoutX="38.0" orientation="VERTICAL" prefHeight="42.0" prefWidth="0.0" />
+                  </Pane>
+                  <Pane prefHeight="45.0" prefWidth="412.0">
+                     <TextField layoutY="1.0" prefHeight="43.0" prefWidth="252.0" promptText="Name">
+                        <styleClass>
+                           <String fx:value="styletextFieldRight" />
+                           <String fx:value="textFontStyle" />
+                           <String fx:value="textFieldLogin" />
+                        </styleClass>
+                     </TextField>
+                  </Pane>
+               </HBox>
+               <HBox prefHeight="46.0" prefWidth="296.0" styleClass="borderTextFieldlLogin">
+                  <children>
+                     <Pane prefHeight="200.0" prefWidth="200.0" styleClass="styletextFieldLeft">
+                        <children>
+                           <ImageView fitHeight="35.0" fitWidth="30.0" layoutX="5.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@img/user.png" />
+                              </image>
+                           </ImageView>
+                           <Separator layoutX="38.0" orientation="VERTICAL" prefHeight="42.0" prefWidth="0.0" />
+                        </children>
+                     </Pane>
+                     <Pane prefHeight="45.0" prefWidth="412.0">
+                        <children>
+                           <TextField layoutY="1.0" prefHeight="43.0" prefWidth="252.0" promptText="Paternal surname">
+                              <styleClass>
+                                 <String fx:value="styletextFieldRight" />
+                                 <String fx:value="textFontStyle" />
+                                 <String fx:value="textFieldLogin" />
+                              </styleClass>
+                           </TextField>
+                        </children>
+                     </Pane>
+                  </children>
+                  <VBox.margin>
+                     <Insets top="5.0" />
+                  </VBox.margin>
+               </HBox>
+               <HBox prefHeight="46.0" prefWidth="296.0" styleClass="borderTextFieldlLogin">
+                  <children>
+                     <Pane prefHeight="200.0" prefWidth="200.0" styleClass="styletextFieldLeft">
+                        <children>
+                           <ImageView fitHeight="35.0" fitWidth="30.0" layoutX="5.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@img/user.png" />
+                              </image>
+                           </ImageView>
+                           <Separator layoutX="38.0" orientation="VERTICAL" prefHeight="42.0" prefWidth="0.0" />
+                        </children>
+                     </Pane>
+                     <Pane prefHeight="45.0" prefWidth="412.0">
+                        <children>
+                           <TextField layoutY="1.0" prefHeight="43.0" prefWidth="252.0" promptText="Maternal surname">
+                              <styleClass>
+                                 <String fx:value="styletextFieldRight" />
+                                 <String fx:value="textFontStyle" />
+                                 <String fx:value="textFieldLogin" />
+                              </styleClass>
+                           </TextField>
+                        </children>
+                     </Pane>
+                  </children>
+                  <VBox.margin>
+                     <Insets top="5.0" />
+                  </VBox.margin>
+               </HBox>
+               <HBox prefHeight="46.0" prefWidth="296.0" styleClass="borderTextFieldlLogin">
+                  <children>
+                     <Pane prefHeight="200.0" prefWidth="200.0" styleClass="styletextFieldLeft">
+                        <children>
+                           <ImageView fitHeight="35.0" fitWidth="30.0" layoutX="5.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@img/email.png" />
+                              </image>
+                           </ImageView>
+                           <Separator layoutX="38.0" orientation="VERTICAL" prefHeight="42.0" prefWidth="0.0" />
+                        </children>
+                     </Pane>
+                     <Pane prefHeight="45.0" prefWidth="412.0">
+                        <children>
+                           <TextField layoutY="1.0" prefHeight="43.0" prefWidth="252.0" promptText="Email">
+                              <styleClass>
+                                 <String fx:value="styletextFieldRight" />
+                                 <String fx:value="textFontStyle" />
+                                 <String fx:value="textFieldLogin" />
+                              </styleClass>
+                           </TextField>
+                        </children>
+                     </Pane>
+                  </children>
+                  <VBox.margin>
+                     <Insets top="5.0" />
+                  </VBox.margin>
+               </HBox>
+               <HBox prefHeight="46.0" prefWidth="296.0" styleClass="borderTextFieldlLogin">
+                  <children>
+                     <Pane prefHeight="200.0" prefWidth="200.0" styleClass="styletextFieldLeft">
+                        <children>
+                           <ImageView fitHeight="35.0" fitWidth="30.0" layoutX="5.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@img/userRegister.png" />
+                              </image>
+                           </ImageView>
+                           <Separator layoutX="38.0" orientation="VERTICAL" prefHeight="42.0" prefWidth="0.0" />
+                        </children>
+                     </Pane>
+                     <Pane prefHeight="45.0" prefWidth="412.0">
+                        <children>
+                           <TextField layoutY="1.0" prefHeight="43.0" prefWidth="252.0" promptText="Username">
+                              <styleClass>
+                                 <String fx:value="styletextFieldRight" />
+                                 <String fx:value="textFontStyle" />
+                                 <String fx:value="textFieldLogin" />
+                              </styleClass>
+                           </TextField>
+                        </children>
+                     </Pane>
+                  </children>
+                  <VBox.margin>
+                     <Insets top="5.0" />
+                  </VBox.margin>
+               </HBox>
+               <HBox prefHeight="46.0" prefWidth="296.0" styleClass="borderTextFieldlLogin">
+                  <VBox.margin>
+                     <Insets top="5.0" />
+                  </VBox.margin>
+                  <Pane prefHeight="200.0" prefWidth="200.0" styleClass="styletextFieldLeft">
+                     <ImageView fitHeight="35.0" fitWidth="30.0" layoutX="5.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@img/locked.png" />
+                     </ImageView>
+                     <Separator layoutX="36.0" orientation="VERTICAL" prefHeight="42.0" prefWidth="6.0" />
+                  </Pane>
+                  <Pane prefHeight="44.0" prefWidth="370.0">
+                     <TextField layoutX="-2.0" layoutY="1.0" prefHeight="42.0" prefWidth="211.0" promptText="Password">
+                        <styleClass>
+                           <String fx:value="backgroundLoginWhite" />
+                           <String fx:value="textFontStyle" />
+                           <String fx:value="textFieldLogin" />
+                        </styleClass>
+                     </TextField>
+                     <Separator layoutX="208.0" orientation="VERTICAL" prefHeight="42.0" prefWidth="6.0" />
+                     <PasswordField layoutY="1.0" prefHeight="42.0" prefWidth="209.0" promptText="Password" styleClass="backgroundLoginWhite">
+                        <font>
+                           <Font size="15.0" />
+                        </font>
+                     </PasswordField>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" styleClass="styletextFieldRight">
+                     <ImageView fitHeight="25.0" fitWidth="28.0" layoutX="8.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@img/notvisibility.png" />
+                        <styleClass>
+                           <String fx:value="styleCursorHand" />
+                           <String fx:value="styleRotate" />
+                        </styleClass>
+                     </ImageView>
+                     <ImageView fitHeight="25.0" fitWidth="28.0" layoutX="9.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@img/visibility.png" />
+                        <styleClass>
+                           <String fx:value="styleCursorHand" />
+                           <String fx:value="styleRotate" />
+                        </styleClass>
+                     </ImageView>
+                  </Pane>
+               </HBox>
+               <HBox prefHeight="46.0" prefWidth="296.0" styleClass="borderTextFieldlLogin">
+                  <children>
+                     <Pane prefHeight="200.0" prefWidth="200.0" styleClass="styletextFieldLeft">
+                        <children>
+                           <ImageView fitHeight="35.0" fitWidth="30.0" layoutX="5.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@img/phone.png" />
+                              </image>
+                           </ImageView>
+                           <Separator layoutX="38.0" orientation="VERTICAL" prefHeight="42.0" prefWidth="0.0" />
+                        </children>
+                     </Pane>
+                     <Pane prefHeight="45.0" prefWidth="412.0">
+                        <children>
+                           <TextField layoutY="1.0" prefHeight="43.0" prefWidth="252.0" promptText="Telefono">
+                              <styleClass>
+                                 <String fx:value="styletextFieldRight" />
+                                 <String fx:value="textFontStyle" />
+                                 <String fx:value="textFieldLogin" />
+                              </styleClass>
+                           </TextField>
+                        </children>
+                     </Pane>
+                  </children>
+                  <VBox.margin>
+                     <Insets top="5.0" />
+                  </VBox.margin>
+               </HBox>
+               <Pane prefHeight="100.0" prefWidth="296.0">
+                  <VBox.margin>
+                     <Insets top="10.0" />
+                  </VBox.margin>
+                  <children>
+                     <RadioButton layoutX="1.0" layoutY="6.0" mnemonicParsing="false" styleClass="styleCursorHand" text="Man">
+                        <padding>
+                           <Insets left="2.0" />
+                        </padding></RadioButton>
+                     <RadioButton layoutX="55.0" layoutY="6.0" mnemonicParsing="false" styleClass="styleCursorHand" text="Woman" />
+                     <ComboBox layoutX="1.0" layoutY="67.0" prefHeight="25.0" prefWidth="70.0" promptText="Day:">
+                        <styleClass>
+                           <String fx:value="styleRadius" />
+                           <String fx:value="styleCursorHand" />
+                        </styleClass></ComboBox>
+                     <ComboBox layoutX="76.0" layoutY="67.0" prefHeight="25.0" prefWidth="135.0" promptText="Mouth:">
+                        <styleClass>
+                           <String fx:value="styleRadius" />
+                           <String fx:value="styleCursorHand" />
+                        </styleClass></ComboBox>
+                     <ComboBox layoutX="215.0" layoutY="67.0" prefHeight="25.0" prefWidth="81.0" promptText="Year:">
+                        <styleClass>
+                           <String fx:value="styleRadius" />
+                           <String fx:value="styleCursorHand" />
+                        </styleClass></ComboBox>
+                     <Label layoutX="1.0" layoutY="33.0" styleClass="textFieldLogin" text="Birthday:" />
+                  </children>
+               </Pane>
+               <Button alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="45.0" prefWidth="272.0" styleClass="buttonSignin" text="Register">
+                  <VBox.margin>
+                     <Insets top="10.0" />
+                  </VBox.margin>
+               </Button>
+            </VBox>
+         </VBox>
+      </Pane>
+      <Pane prefHeight="660.0" prefWidth="977.0" styleClass="backgroundWhite">
+         <CubicCurve controlX1="608.7987060546875" controlX2="375.80517578125" controlY1="2.7987060546875" controlY2="142.80511474609375" endX="457.0" endY="-5.0" fill="DODGERBLUE" layoutX="153.0" layoutY="5.0" startX="-198.2012939453125" startY="-5.0" stroke="BLACK" styleClass="styleForms">
+            <effect>
+               <DropShadow height="134.83" radius="37.602500000000006" spread="0.65" width="17.58">
+                  <color>
+                     <Color red="0.8509804010391235" green="0.8509804010391235" blue="0.8509804010391235" />
+                  </color>
+               </DropShadow>
+            </effect>
+         </CubicCurve>
+         <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="574.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">
+            <Image url="@img/cerrar.png" />
+         </ImageView>
+         <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="545.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">
+            <Image url="@img/minimizar.png" />
+         </ImageView>
+         <Button alignment="CENTER" layoutX="246.0" layoutY="645.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="45.0" prefWidth="119.0" styleClass="buttonSignin" text="Regresar" />
+         <ImageView fitHeight="429.0" fitWidth="611.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@img/registerFont.png" />
+            </image></ImageView>
+         <CubicCurve controlX1="448.794921875" controlX2="153.7987060546875" controlY1="114.793701171875" controlY2="35.7987060546875" endX="280.0" endY="122.0" fill="DODGERBLUE" layoutX="331.0" layoutY="593.0" startX="-366.205078125" startY="122.0" stroke="BLACK" styleClass="styleForms">
+            <effect>
+               <DropShadow height="174.77" radius="43.1925" spread="0.62" width="0.0">
+                  <color>
+                     <Color red="0.8509804010391235" green="0.8509804010391235" blue="0.8509804010391235" />
+                  </color>
+               </DropShadow>
+            </effect>
+         </CubicCurve>
+      </Pane>
+   </HBox>
+</AnchorPane>

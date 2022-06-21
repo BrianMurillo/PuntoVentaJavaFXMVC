@@ -1,4 +1,4 @@
-package com.ciencias.puntoventajavafxmvc;
+package com.ciencias.puntoventajavafxmvc.controller;
 
 import javafx.fxml.Initializable;
 

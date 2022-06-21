@@ -9,182 +9,155 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="571.0" prefWidth="1024.0" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ciencias.puntoventajavafxmvc.LoginController">
-   <children>
-      <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Pane prefHeight="560.0" prefWidth="644.0" styleClass="backgroundLoginWhite" HBox.hgrow="ALWAYS">
-               <children>
-                  <ImageView fitHeight="447.0" fitWidth="634.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/fondo.png" />
-                     </image>
-                     <effect>
-                        <Reflection fraction="0.55" topOpacity="0.37" />
-                     </effect>
-                  </ImageView>
-               </children></Pane>
-            <Pane prefHeight="560.0" prefWidth="401.0" styleClass="backgroundLoginWhite" HBox.hgrow="ALWAYS">
-               <children>
-                  <VBox alignment="CENTER" layoutX="18.0" layoutY="41.0" prefHeight="489.0" prefWidth="356.0" styleClass="backgroundLogin">
-                     <effect>
-                        <DropShadow height="14.35" offsetX="2.0" offsetY="1.0" radius="6.75" width="14.65">
-                           <color>
-                              <Color red="0.43421053886413574" green="0.42415934801101685" blue="0.42415934801101685" />
-                           </color>
-                        </DropShadow>
-                     </effect>
-                     <children>
-                        <ImageView fitHeight="92.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@img/login.png" />
-                           </image>
-                        </ImageView>
-                        <HBox prefHeight="50.0" prefWidth="356.0">
-                           <children>
-                              <Pane prefHeight="200.0" prefWidth="200.0">
-                                 <children>
-                                    <Separator layoutX="16.0" layoutY="24.0" prefHeight="3.0" prefWidth="103.0" />
-                                 </children>
-                              </Pane>
-                              <Pane prefHeight="200.0" prefWidth="200.0">
-                                 <children>
-                                    <Label alignment="CENTER" layoutX="-4.0" layoutY="1.0" prefHeight="50.0" prefWidth="125.0" styleClass="textFontStyle" text="Sign In">
-                                       <font>
-                                          <Font size="30.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </Pane>
-                              <Pane prefHeight="200.0" prefWidth="200.0">
-                                 <children>
-                                    <Separator layoutY="24.0" prefHeight="3.0" prefWidth="103.0" />
-                                 </children>
-                              </Pane>
-                           </children>
-                        </HBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <HBox prefHeight="46.0" prefWidth="296.0" styleClass="borderTextFieldlLogin">
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                                 <children>
-                                    <Pane prefHeight="200.0" prefWidth="200.0" styleClass="styletextFieldLeft">
-                                       <children>
-                                          <ImageView fitHeight="35.0" fitWidth="30.0" layoutX="5.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@img/user.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Separator layoutX="38.0" orientation="VERTICAL" prefHeight="42.0" prefWidth="0.0" />
-                                       </children>
-                                    </Pane>
-                                    <Pane prefHeight="45.0" prefWidth="412.0">
-                                       <children>
-                                          <TextField layoutY="1.0" prefHeight="40.0" prefWidth="252.0" promptText="User/email">
-                                             <styleClass>
-                                                <String fx:value="styletextFieldRight" />
-                                                <String fx:value="textFontStyle" />
-                                                <String fx:value="textFieldLogin" />
-                                             </styleClass></TextField>
-                                       </children>
-                                    </Pane>
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="46.0" prefWidth="296.0" styleClass="borderTextFieldlLogin">
-                                 <VBox.margin>
-                                    <Insets top="30.0" />
-                                 </VBox.margin>
-                                 <children>
-                                    <Pane prefHeight="200.0" prefWidth="200.0" styleClass="styletextFieldLeft">
-                                       <children>
-                                          <ImageView fitHeight="35.0" fitWidth="30.0" layoutX="5.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@img/locked.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Separator layoutX="36.0" orientation="VERTICAL" prefHeight="42.0" prefWidth="6.0" />
-                                       </children>
-                                    </Pane>
-                                    <Pane prefHeight="44.0" prefWidth="370.0">
-                                       <children>
-                                          <TextField layoutX="-2.0" layoutY="1.0" prefHeight="40.0" prefWidth="211.0" promptText="*******">
-                                             <styleClass>
-                                                <String fx:value="backgroundLoginWhite" />
-                                                <String fx:value="textFontStyle" />
-                                                <String fx:value="textFieldLogin" />
-                                             </styleClass>
-                                          </TextField>
-                                          <Separator layoutX="208.0" orientation="VERTICAL" prefHeight="42.0" prefWidth="6.0" />
-                                          <PasswordField layoutY="1.0" prefHeight="40.0" prefWidth="213.0" promptText="********" styleClass="backgroundLoginWhite">
-                                             <font>
-                                                <Font size="15.0" />
-                                             </font></PasswordField>
-                                       </children>
-                                    </Pane>
-                                    <Pane prefHeight="200.0" prefWidth="200.0" styleClass="styletextFieldRight">
-                                       <children>
-                                          <ImageView fitHeight="25.0" fitWidth="28.0" layoutX="8.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">
-                                             <image>
-                                                <Image url="@img/notvisibility.png" />
-                                             </image>
-                                          </ImageView>
-                                          <ImageView fitHeight="25.0" fitWidth="28.0" layoutX="9.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">
-                                             <image>
-                                                <Image url="@img/visibility.png" />
-                                             </image>
-                                          </ImageView>
-                                       </children></Pane>
-                                 </children>
-                              </HBox>
-                              <Button alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="45.0" prefWidth="272.0" styleClass="buttonSignin" text="Log In">
-                                 <VBox.margin>
-                                    <Insets top="30.0" />
-                                 </VBox.margin>
-                              </Button>
-                           </children>
-                           <padding>
-                              <Insets left="30.0" right="30.0" />
-                           </padding>
-                        </VBox>
-                        <Pane prefHeight="72.0" prefWidth="356.0">
-                           <VBox.margin>
-                              <Insets left="30.0" right="30.0" />
-                           </VBox.margin>
-                           <children>
-                              <Label layoutX="197.0" layoutY="16.0" text="Forgot password?">
-                                 <styleClass>
-                                    <String fx:value="textFontStyle" />
-                                    <String fx:value="styleCursorHandUnderline" />
-                                 </styleClass></Label>
-                              <Label layoutX="63.0" layoutY="50.0" styleClass="textFontStyle" text="Not a member?" />
-                              <Label layoutX="152.0" layoutY="50.0" text="Create Account">
-                                 <styleClass>
-                                    <String fx:value="textFontStyle" />
-                                    <String fx:value="styleCursorHandUnderline" />
-                                 </styleClass></Label>
-                              <CheckBox layoutY="15.0" mnemonicParsing="false" text="Remember me">
-                                 <styleClass>
-                                    <String fx:value="textFontStyle" />
-                                    <String fx:value="styleCursorHandUnderline" />
-                                 </styleClass></CheckBox>
-                           </children>
-                        </Pane>
-                     </children>
-                  </VBox>
-                  <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="359.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">
-                     <image>
-                        <Image url="@img/cerrar.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="330.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">
-                     <image>
-                        <Image url="@img/minimizar.png" />
-                     </image>
-                  </ImageView>
-               </children></Pane>
-         </children>
-      </HBox>
-   </children>
+<AnchorPane prefHeight="571.0" prefWidth="1024.0" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/16"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ciencias.puntoventajavafxmvc.LoginController">
+   <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+         AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane prefHeight="560.0" prefWidth="644.0" styleClass="backgroundLoginWhite" HBox.hgrow="ALWAYS">
+         <ImageView fitHeight="447.0" fitWidth="634.0" pickOnBounds="true" preserveRatio="true">
+            <effect>
+               <Reflection fraction="0.55" topOpacity="0.37"/>
+            </effect>
+            <Image url="@img/fondo.png"/>
+         </ImageView>
+      </Pane>
+      <Pane prefHeight="560.0" prefWidth="401.0" styleClass="backgroundLoginWhite" HBox.hgrow="ALWAYS">
+         <VBox alignment="CENTER" layoutX="18.0" layoutY="41.0" prefHeight="489.0" prefWidth="356.0"
+               styleClass="backgroundLogin">
+            <effect>
+               <DropShadow height="14.35" offsetX="2.0" offsetY="1.0" radius="6.75" width="14.65">
+                  <color>
+                     <Color red="0.43421053886413574" green="0.42415934801101685" blue="0.42415934801101685"/>
+                  </color>
+               </DropShadow>
+            </effect>
+            <ImageView fitHeight="92.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@img/login.png"/>
+            </ImageView>
+            <HBox prefHeight="50.0" prefWidth="356.0">
+               <Pane prefHeight="200.0" prefWidth="200.0">
+                  <Separator layoutX="16.0" layoutY="24.0" prefHeight="3.0" prefWidth="103.0"/>
+               </Pane>
+               <Pane prefHeight="200.0" prefWidth="200.0">
+                  <Label alignment="CENTER" layoutX="-4.0" layoutY="1.0" prefHeight="50.0"
+                         prefWidth="125.0" styleClass="textFontStyle" text="Sign In">
+                     <font>
+                        <Font size="30.0"/>
+                     </font>
+                  </Label>
+               </Pane>
+               <Pane prefHeight="200.0" prefWidth="200.0">
+                  <Separator layoutY="24.0" prefHeight="3.0" prefWidth="103.0"/>
+               </Pane>
+            </HBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <padding>
+                  <Insets left="30.0" right="30.0"/>
+               </padding>
+               <HBox prefHeight="46.0" prefWidth="296.0" styleClass="borderTextFieldlLogin">
+                  <VBox.margin>
+                     <Insets top="10.0"/>
+                  </VBox.margin>
+                  <Pane prefHeight="200.0" prefWidth="200.0" styleClass="styletextFieldLeft">
+                     <ImageView fitHeight="35.0" fitWidth="30.0" layoutX="5.0" layoutY="6.0"
+                                pickOnBounds="true" preserveRatio="true">
+                        <Image url="@img/user.png"/>
+                     </ImageView>
+                     <Separator layoutX="38.0" orientation="VERTICAL" prefHeight="42.0"
+                                prefWidth="0.0"/>
+                  </Pane>
+                  <Pane prefHeight="45.0" prefWidth="412.0">
+                     <TextField layoutY="1.0" prefHeight="40.0" prefWidth="252.0"
+                                promptText="User/email">
+                        <styleClass>
+                           <String fx:value="styletextFieldRight"/>
+                           <String fx:value="textFontStyle"/>
+                           <String fx:value="textFieldLogin"/>
+                        </styleClass>
+                     </TextField>
+                  </Pane>
+               </HBox>
+               <HBox prefHeight="46.0" prefWidth="296.0" styleClass="borderTextFieldlLogin">
+                  <VBox.margin>
+                     <Insets top="30.0"/>
+                  </VBox.margin>
+                  <Pane prefHeight="200.0" prefWidth="200.0" styleClass="styletextFieldLeft">
+                     <ImageView fitHeight="35.0" fitWidth="30.0" layoutX="5.0" layoutY="6.0"
+                                pickOnBounds="true" preserveRatio="true">
+                        <Image url="@img/locked.png"/>
+                     </ImageView>
+                     <Separator layoutX="36.0" orientation="VERTICAL" prefHeight="42.0"
+                                prefWidth="6.0"/>
+                  </Pane>
+                  <Pane prefHeight="44.0" prefWidth="370.0">
+                     <TextField layoutX="-2.0" layoutY="1.0" prefHeight="40.0" prefWidth="211.0"
+                                promptText="*******">
+                        <styleClass>
+                           <String fx:value="backgroundLoginWhite"/>
+                           <String fx:value="textFontStyle"/>
+                           <String fx:value="textFieldLogin"/>
+                        </styleClass>
+                     </TextField>
+                     <Separator layoutX="208.0" orientation="VERTICAL" prefHeight="42.0"
+                                prefWidth="6.0"/>
+                     <PasswordField layoutY="1.0" prefHeight="40.0" prefWidth="213.0"
+                                    promptText="********" styleClass="backgroundLoginWhite">
+                        <font>
+                           <Font size="15.0"/>
+                        </font>
+                     </PasswordField>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" styleClass="styletextFieldRight">
+                     <ImageView fitHeight="25.0" fitWidth="28.0" layoutX="8.0" layoutY="9.0"
+                                pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">
+                        <Image url="@img/notvisibility.png"/>
+                     </ImageView>
+                     <ImageView fitHeight="25.0" fitWidth="28.0" layoutX="9.0" layoutY="6.0"
+                                pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">
+                        <Image url="@img/visibility.png"/>
+                     </ImageView>
+                  </Pane>
+               </HBox>
+               <Button alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                       prefHeight="45.0" prefWidth="272.0" styleClass="buttonSignin" text="Log In">
+                  <VBox.margin>
+                     <Insets top="30.0"/>
+                  </VBox.margin>
+               </Button>
+            </VBox>
+            <Pane prefHeight="72.0" prefWidth="356.0">
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0"/>
+               </VBox.margin>
+               <Label layoutX="197.0" layoutY="16.0" text="Forgot password?">
+                  <styleClass>
+                     <String fx:value="textFontStyle"/>
+                     <String fx:value="styleCursorHandUnderline"/>
+                  </styleClass>
+               </Label>
+               <Label layoutX="63.0" layoutY="50.0" styleClass="textFontStyle" text="Not a member?"/>
+               <Label layoutX="152.0" layoutY="50.0" text="Create Account">
+                  <styleClass>
+                     <String fx:value="textFontStyle"/>
+                     <String fx:value="styleCursorHandUnderline"/>
+                  </styleClass>
+               </Label>
+               <CheckBox layoutY="15.0" mnemonicParsing="false" text="Remember me">
+                  <styleClass>
+                     <String fx:value="textFontStyle"/>
+                     <String fx:value="styleCursorHandUnderline"/>
+                  </styleClass>
+               </CheckBox>
+            </Pane>
+         </VBox>
+         <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="359.0" layoutY="5.0" pickOnBounds="true"
+                    preserveRatio="true" styleClass="styleCursorHand">
+            <Image url="@img/cerrar.png"/>
+         </ImageView>
+         <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="330.0" layoutY="5.0" pickOnBounds="true"
+                    preserveRatio="true" styleClass="styleCursorHand">
+            <Image url="@img/minimizar.png"/>
+         </ImageView>
+      </Pane>
+   </HBox>
 </AnchorPane>

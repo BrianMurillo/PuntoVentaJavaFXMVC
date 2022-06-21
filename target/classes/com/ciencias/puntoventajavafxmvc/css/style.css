@@ -1,0 +1,66 @@
+.backgroundLogin{
+    -fx-background-color: #D9D9D9;
+    -fx-background-radius: 15px;
+}
+
+.backgroundLoginWhite{
+    -fx-background-color: #F2F2F2;
+}
+
+.buttonSignin{
+    -fx-background-color: #87A7FF;
+    -fx-background-radius: 10px;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-family: "Yu Gothic UI";
+}
+
+.buttonSignin:hover{
+    -fx-border-color: #4E4E4E;
+    -fx-border-radius: 10px;
+    -fx-border-width: 0.5px;
+    -fx-cursor: hand;
+}
+
+.buttonSignin:pressed{
+    -fx-background-color: #F2F2F2;
+    -fx-text-fill: black;
+    -fx-border-width: 1px;
+}
+
+.textFontStyle{
+    -fx-font-family: "Yu Gothic UI";
+}
+
+.textFieldLogin{
+    -fx-font-size: 18px;
+}
+
+.styletextFieldLeft{
+    -fx-background-color: #F2F2F2;
+    -fx-background-radius: 10px 0px 0px 10px;
+}
+
+.styletextFieldRight{
+    -fx-background-color: #F2F2F2;
+    -fx-background-radius: 0px 10px 10px 0px;
+}
+
+.borderTextFieldlLogin{
+    -fx-border-radius: 10px;
+    -fx-border-width: 0.5px;
+    -fx-border-color: #87A7FF;
+}
+
+.borderTextFieldlLogin:hover{
+    -fx-border-color: #4E4E4E;
+}
+
+.styleCursorHandUnderline:hover{
+    -fx-cursor: hand;
+    -fx-underline: true;
+}
+
+.styleCursorHand{
+    -fx-cursor: hand;
+}

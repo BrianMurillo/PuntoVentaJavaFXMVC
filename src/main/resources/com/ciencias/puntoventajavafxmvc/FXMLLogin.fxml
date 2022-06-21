@@ -129,13 +129,13 @@
                         </VBox>
                         <Pane prefHeight="72.0" prefWidth="356.0">
                            <VBox.margin>
-                              <Insets />
+                              <Insets left="30.0" right="30.0" />
                            </VBox.margin>
                            <children>
-                              <Label layoutX="247.0" layoutY="14.0" text="Forgot passowrd?" />
-                              <Label layoutX="100.0" layoutY="41.0" text="Not a member?" />
-                              <Label layoutX="189.0" layoutY="41.0" text="Create Account" />
-                              <CheckBox layoutX="27.0" layoutY="14.0" mnemonicParsing="false" text="CheckBox" />
+                              <Label layoutX="201.0" layoutY="15.0" text="Forgot passowrd?" />
+                              <Label layoutX="63.0" layoutY="50.0" text="Not a member?" />
+                              <Label layoutX="152.0" layoutY="50.0" text="Create Account" />
+                              <CheckBox layoutY="15.0" mnemonicParsing="false" text="CheckBox" />
                            </children>
                         </Pane>
                      </children>

@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.ciencias.puntoventajavafxmvc/com.ciencias.puntoventajavafxmvc.HelloApplication
+                                com.ciencias.puntoventajavafxmvc/com.ciencias.puntoventajavafxmvc.MainApp
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

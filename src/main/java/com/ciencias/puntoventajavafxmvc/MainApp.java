@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.util.Locale;
 
 public class MainApp extends Application {
     @Override
@@ -18,7 +19,13 @@ public class MainApp extends Application {
         stage.show();
     }
 
+    static Locale getLocaleSettingFromConfigurationFile(){
+        return Locale.ENGLISH;
+    }
+
     public static void main(String[] args) {
+        Locale appLocale = getLocaleSettingFromConfigurationFile();
+        Locale.setDefault(appLocale);
         launch();
     }
 }

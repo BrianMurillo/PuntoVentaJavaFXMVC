@@ -1,14 +1,20 @@
 package com.ciencias.puntoventajavafxmvc.controller;
 
+import com.ciencias.puntoventajavafxmvc.MainApp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -67,16 +73,16 @@ public class RegisterController implements Initializable {
     private Button btnReturn;
 
     @FXML
-    private ImageView imgMinimizar;
+    private ImageView imgMinimize;
 
     @FXML
-    private ImageView imgCerrar;
-    //Contador boton ver
+    private ImageView imgClose;
+    //Cont imageSee
     private int cont = 1;
-    //Contador radio button
+    //Cont radioButton
     private int contRbMan = 1;
     private int contRbWoman = 1;
-    //Mensaje confirmacion
+    //Messages
     Alert msjConfirmacion = new Alert(Alert.AlertType.CONFIRMATION);
 
     @Override
@@ -110,13 +116,13 @@ public class RegisterController implements Initializable {
             }
         }
 
-        if (event.getSource() == imgMinimizar){
+        if (event.getSource() == imgMinimize){
             Stage stage = (Stage) this.btnRegister.getScene().getWindow();
             stage.setIconified(true);
         }
 
-        if (event.getSource() == imgCerrar){
-            Optional<ButtonType> result =mensajeConfirmacion(msjConfirmacion,"Confirmación", "¿Desea salir de la aplicación?");
+        if (event.getSource() == imgClose){
+            Optional<ButtonType> result =mensajeConfirmacion(msjConfirmacion,"Confirmation", "Do you want to exit the application?");
             if(result.get() == ButtonType.OK){
                 Stage stage = (Stage) this.btnRegister.getScene().getWindow();
                 stage.close();
@@ -187,7 +193,21 @@ public class RegisterController implements Initializable {
         }
 
         if (event.getSource() == btnReturn){
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("FXMLLogin.fxml"));
+            Scene scene = null;
+            try {
+                scene = new Scene(fxmlLoader.load());
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println(e);
+            }
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setScene(scene);
+            stage.show();
 
+            Stage stageRegister = (Stage) txtUsername.getScene().getWindow();
+            stageRegister.close();
         }
 
         if (event.getSource() == rbMan){

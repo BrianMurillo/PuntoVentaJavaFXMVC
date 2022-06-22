@@ -75,7 +75,7 @@
                      <Separator layoutX="38.0" orientation="VERTICAL" prefHeight="42.0" prefWidth="0.0" />
                   </Pane>
                   <Pane prefHeight="45.0" prefWidth="412.0">
-                     <TextField fx:id="txtUser" layoutY="1.0" prefHeight="40.0" prefWidth="252.0" promptText="User/email">
+                     <TextField fx:id="txtUser" layoutY="1.0" onKeyPressed="#txtUserOnKeyPressed" prefHeight="40.0" prefWidth="252.0" promptText="User/email">
                         <styleClass>
                            <String fx:value="styletextFieldRight" />
                            <String fx:value="textFontStyle" />
@@ -95,7 +95,7 @@
                      <Separator layoutX="36.0" orientation="VERTICAL" prefHeight="42.0" prefWidth="6.0" />
                   </Pane>
                   <Pane prefHeight="44.0" prefWidth="370.0">
-                     <TextField fx:id="txtPassView" layoutX="-2.0" layoutY="1.0" prefHeight="40.0" prefWidth="211.0" promptText="*******">
+                     <TextField fx:id="txtPassView" layoutX="-2.0" layoutY="1.0" onKeyPressed="#txtPassViewUserOnKeyPressed" prefHeight="40.0" prefWidth="211.0" promptText="*******">
                         <styleClass>
                            <String fx:value="backgroundLoginWhite" />
                            <String fx:value="textFontStyle" />
@@ -103,7 +103,7 @@
                         </styleClass>
                      </TextField>
                      <Separator layoutX="208.0" orientation="VERTICAL" prefHeight="42.0" prefWidth="6.0" />
-                     <PasswordField fx:id="txtPass" layoutY="1.0" prefHeight="40.0" prefWidth="209.0" promptText="********">
+                     <PasswordField fx:id="txtPass" layoutY="1.0" onKeyPressed="#txtPassOnKeyPressed" prefHeight="40.0" prefWidth="209.0" promptText="********">
                         <font>
                            <Font size="15.0" />
                         </font>
@@ -130,7 +130,7 @@
                      </ImageView>
                   </Pane>
                </HBox>
-               <Button fx:id="btnLogin" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="45.0" prefWidth="272.0" styleClass="buttonSignin" text="Log In">
+               <Button fx:id="btnLogin" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionEvents" prefHeight="45.0" prefWidth="272.0" styleClass="buttonSignin" text="Log In">
                   <VBox.margin>
                      <Insets top="30.0" />
                   </VBox.margin>
@@ -140,14 +140,14 @@
                <VBox.margin>
                   <Insets left="30.0" right="30.0" />
                </VBox.margin>
-               <Label fx:id="lblForgotPassword" layoutX="188.0" layoutY="19.0" text="Forgot password?">
+               <Label fx:id="lblForgotPassword" layoutX="188.0" layoutY="19.0" onMouseClicked="#onMouseClicked" text="Forgot password?">
                   <styleClass>
                      <String fx:value="textFontStyle" />
                      <String fx:value="styleCursorHandUnderline" />
                   </styleClass>
                </Label>
                <Label layoutX="61.0" layoutY="73.0" styleClass="textFontStyle" text="Not a member?" />
-               <Label fx:id="lblRegister" layoutX="150.0" layoutY="73.0" text="Create Account">
+               <Label fx:id="lblRegister" layoutX="150.0" layoutY="73.0" onMouseClicked="#onMouseClicked" text="Create Account">
                   <styleClass>
                      <String fx:value="textFontStyle" />
                      <String fx:value="styleCursorHandUnderline" />

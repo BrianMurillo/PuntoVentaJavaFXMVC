@@ -53,29 +53,29 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        imageNotSee.setVisible(false);
+        imageSee.setVisible(false);
         txtPassView.setVisible(false);
     }
 
     @FXML
     public void onMouseClicked(MouseEvent event){
 
-        if (event.getSource() == imageSee){
+        if (event.getSource() == imageNotSee){
             cont++;
             if(cont%2 == 0){
-                imageNotSee.setVisible(true);
-                imageSee.setVisible(false);
+                imageSee.setVisible(true);
+                imageNotSee.setVisible(false);
                 txtPassView.setVisible(true);
                 txtPassView.setText(txtPass.getText());
                 txtPass.setVisible(false);
             }
         }
 
-        if(event.getSource() == imageNotSee){
+        if(event.getSource() == imageSee){
             cont++;
             if(cont%2 != 0){
-                imageSee.setVisible(true);
-                imageNotSee.setVisible(false);
+                imageNotSee.setVisible(true);
+                imageSee.setVisible(false);
                 txtPass.setVisible(true);
                 txtPass.setText(txtPassView.getText());
                 txtPassView.setVisible(false);

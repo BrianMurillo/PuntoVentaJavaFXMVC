@@ -1,9 +1,12 @@
 package com.ciencias.puntoventajavafxmvc.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import java.net.URL;
@@ -47,6 +50,7 @@ public class LoginController implements Initializable {
 
     //Mensajes
     Alert msjConfirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+    Alert msjInformacion = new Alert(Alert.AlertType.INFORMATION);
 
     //Contador ver
     private int cont=1;
@@ -71,7 +75,7 @@ public class LoginController implements Initializable {
             }
         }
 
-        if(event.getSource() == imageSee){
+        if (event.getSource() == imageSee){
             cont++;
             if(cont%2 != 0){
                 imageNotSee.setVisible(true);
@@ -82,17 +86,53 @@ public class LoginController implements Initializable {
             }
         }
 
-        if(event.getSource() == imageMinimizar){
+        if (event.getSource() == imageMinimizar){
             Stage stage = (Stage) this.btnLogin.getScene().getWindow();
             stage.setIconified(true);
         }
 
-        if(event.getSource() == imageClose){
-            Optional<ButtonType> result =mensajeConfirmacion(msjConfirmacion,"Confirmación", "¿Desea Salir?");
+        if (event.getSource() == imageClose){
+            Optional<ButtonType> result =mensajeConfirmacion(msjConfirmacion,"Confirmación", "¿Desea salir de la aplicación?");
             if(result.get() == ButtonType.OK){
                 Stage stage = (Stage) this.btnLogin.getScene().getWindow();
                 stage.close();
             }
+        }
+
+        if (event.getSource() == lblForgotPassword){
+
+        }
+
+        if (event.getSource() == lblRegister){
+
+        }
+    }
+
+    @FXML
+    private void txtUserOnKeyPressed(KeyEvent event){
+        if(event.getCode() == KeyCode.ENTER){
+
+        }
+    }
+
+    @FXML
+    private void txtPassOnKeyPressed(KeyEvent event){
+        if(event.getCode() == KeyCode.ENTER){
+
+        }
+    }
+
+    @FXML
+    private void txtPassViewUserOnKeyPressed(KeyEvent event){
+        if(event.getCode() == KeyCode.ENTER){
+
+        }
+    }
+
+    @FXML
+    private void onActionEvents(ActionEvent event){
+        if (event.getSource() == btnLogin){
+
         }
     }
 
@@ -101,6 +141,13 @@ public class LoginController implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText(contenido);
         return alert.showAndWait();
+    }
+
+    public void mensajeInformacion(Alert alert, String titulo, String contenido){
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(contenido);
+        alert.showAndWait();
     }
 
 }

@@ -1,5 +1,6 @@
 package com.ciencias.puntoventajavafxmvc.controller;
 
+import com.ciencias.puntoventajavafxmvc.DAO.MessageHandling;
 import com.ciencias.puntoventajavafxmvc.MainApp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -53,12 +54,9 @@ public class LoginController implements Initializable {
     @FXML
     private ImageView imageClose;
 
-    //Controller Register
-    private RegisterController registerController;
-
     //Messages for user
-    Alert msjConfirmacion = new Alert(Alert.AlertType.CONFIRMATION);
-    Alert msjInformacion = new Alert(Alert.AlertType.INFORMATION);
+    Alert msjConfirmation = new Alert(Alert.AlertType.CONFIRMATION);
+    Alert msjInformation = new Alert(Alert.AlertType.INFORMATION);
 
     //Cont see
     private int cont=1;
@@ -100,7 +98,7 @@ public class LoginController implements Initializable {
         }
 
         if (event.getSource() == imageClose){
-            Optional<ButtonType> result =messagesConfirmation(msjConfirmacion,"Confirmation", "Do you want to exit the application?");
+            Optional<ButtonType> result = MessageHandling.messageConfirmation(msjConfirmation,"Confirmation", "Do you want to exit the application?");
             if(result.get() == ButtonType.OK){
                 Stage stage = (Stage) this.btnLogin.getScene().getWindow();
                 stage.close();
@@ -157,19 +155,4 @@ public class LoginController implements Initializable {
 
         }
     }
-
-    public Optional<ButtonType> messagesConfirmation(Alert alert, String title, String content){
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(content);
-        return alert.showAndWait();
-    }
-
-    public void messagesInformation(Alert alert, String title, String content){
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(content);
-        alert.showAndWait();
-    }
-
 }

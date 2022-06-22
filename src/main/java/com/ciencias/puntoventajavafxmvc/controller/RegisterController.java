@@ -1,5 +1,7 @@
 package com.ciencias.puntoventajavafxmvc.controller;
 
+import com.ciencias.puntoventajavafxmvc.DAO.DataCBXRegister;
+import com.ciencias.puntoventajavafxmvc.DAO.MessageHandling;
 import com.ciencias.puntoventajavafxmvc.MainApp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +15,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
@@ -61,7 +62,7 @@ public class RegisterController implements Initializable {
     private ComboBox cbxDay;
 
     @FXML
-    private ComboBox cbxMouth;
+    private ComboBox cbxMonth;
 
     @FXML
     private ComboBox cbxYear;
@@ -83,12 +84,16 @@ public class RegisterController implements Initializable {
     private int contRbMan = 1;
     private int contRbWoman = 1;
     //Messages
-    Alert msjConfirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+    Alert msjConfirmation = new Alert(Alert.AlertType.CONFIRMATION);
+    Alert msjInformation = new Alert(Alert.AlertType.INFORMATION);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         imageSee.setVisible(false);
         txtPasswordView.setVisible(false);
+        cbxDay.getItems().addAll(DataCBXRegister.arrayDays());
+        cbxMonth.getItems().addAll(DataCBXRegister.arrayMouths());
+        cbxYear.getItems().addAll(DataCBXRegister.arrayYears());
     }
 
     @FXML
@@ -122,7 +127,7 @@ public class RegisterController implements Initializable {
         }
 
         if (event.getSource() == imgClose){
-            Optional<ButtonType> result =mensajeConfirmacion(msjConfirmacion,"Confirmation", "Do you want to exit the application?");
+            Optional<ButtonType> result = MessageHandling.messageConfirmation(msjConfirmation,"Confirmation", "Do you want to exit the application?");
             if(result.get() == ButtonType.OK){
                 Stage stage = (Stage) this.btnRegister.getScene().getWindow();
                 stage.close();
@@ -232,12 +237,5 @@ public class RegisterController implements Initializable {
             }
         }
 
-    }
-
-    public Optional<ButtonType> mensajeConfirmacion(Alert alert, String titulo, String contenido){
-        alert.setTitle(titulo);
-        alert.setHeaderText(null);
-        alert.setContentText(contenido);
-        return alert.showAndWait();
     }
 }

@@ -164,7 +164,7 @@
          <ImageView fx:id="imageClose" fitHeight="23.0" fitWidth="23.0" layoutX="359.0" layoutY="5.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">
             <Image url="@img/cerrar.png" />
          </ImageView>
-         <ImageView fx:id="imageMinimizar" fitHeight="23.0" fitWidth="23.0" layoutX="330.0" layoutY="5.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">
+         <ImageView fx:id="imageMinimize" fitHeight="23.0" fitWidth="23.0" layoutX="330.0" layoutY="5.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">
             <Image url="@img/minimizar.png" />
          </ImageView>
       </Pane>

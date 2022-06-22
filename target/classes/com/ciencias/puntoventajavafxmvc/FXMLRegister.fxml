@@ -304,10 +304,10 @@
                </DropShadow>
             </effect>
          </CubicCurve>
-         <ImageView fx:id="imgCerrar" fitHeight="23.0" fitWidth="23.0" layoutX="574.0" layoutY="14.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">
+         <ImageView fx:id="imgClose" fitHeight="23.0" fitWidth="23.0" layoutX="574.0" layoutY="14.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">
             <Image url="@img/cerrar.png" />
          </ImageView>
-         <ImageView fx:id="imgMinimizar" fitHeight="23.0" fitWidth="23.0" layoutX="545.0" layoutY="14.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">
+         <ImageView fx:id="imgMinimize" fitHeight="23.0" fitWidth="23.0" layoutX="545.0" layoutY="14.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">
             <Image url="@img/minimizar.png" />
          </ImageView>
          <Button fx:id="btnReturn" alignment="CENTER" layoutX="246.0" layoutY="645.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionEvents" prefHeight="45.0" prefWidth="119.0" styleClass="buttonSignin" text="Return" />

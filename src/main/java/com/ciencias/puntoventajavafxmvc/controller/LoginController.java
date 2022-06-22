@@ -1,14 +1,19 @@
 package com.ciencias.puntoventajavafxmvc.controller;
 
+import com.ciencias.puntoventajavafxmvc.MainApp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -43,16 +48,19 @@ public class LoginController implements Initializable {
     private Label lblRegister;
 
     @FXML
-    private ImageView imageMinimizar;
+    private ImageView imageMinimize;
 
     @FXML
     private ImageView imageClose;
 
-    //Mensajes
+    //Controller Register
+    private RegisterController registerController;
+
+    //Messages for user
     Alert msjConfirmacion = new Alert(Alert.AlertType.CONFIRMATION);
     Alert msjInformacion = new Alert(Alert.AlertType.INFORMATION);
 
-    //Contador ver
+    //Cont see
     private int cont=1;
 
     @Override
@@ -86,13 +94,13 @@ public class LoginController implements Initializable {
             }
         }
 
-        if (event.getSource() == imageMinimizar){
+        if (event.getSource() == imageMinimize){
             Stage stage = (Stage) this.btnLogin.getScene().getWindow();
             stage.setIconified(true);
         }
 
         if (event.getSource() == imageClose){
-            Optional<ButtonType> result =mensajeConfirmacion(msjConfirmacion,"Confirmación", "¿Desea salir de la aplicación?");
+            Optional<ButtonType> result =messagesConfirmation(msjConfirmacion,"Confirmation", "Do you want to exit the application?");
             if(result.get() == ButtonType.OK){
                 Stage stage = (Stage) this.btnLogin.getScene().getWindow();
                 stage.close();
@@ -104,7 +112,21 @@ public class LoginController implements Initializable {
         }
 
         if (event.getSource() == lblRegister){
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("FXMLRegister.fxml"));
+            Scene scene = null;
+            try {
+                scene = new Scene(fxmlLoader.load());
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println(e);
+            }
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setScene(scene);
+            stage.show();
 
+            Stage stageLogin = (Stage) txtUser.getScene().getWindow();
+            stageLogin.close();
         }
     }
 
@@ -136,17 +158,17 @@ public class LoginController implements Initializable {
         }
     }
 
-    public Optional<ButtonType> mensajeConfirmacion(Alert alert, String titulo, String contenido){
-        alert.setTitle(titulo);
+    public Optional<ButtonType> messagesConfirmation(Alert alert, String title, String content){
+        alert.setTitle(title);
         alert.setHeaderText(null);
-        alert.setContentText(contenido);
+        alert.setContentText(content);
         return alert.showAndWait();
     }
 
-    public void mensajeInformacion(Alert alert, String titulo, String contenido){
-        alert.setTitle(titulo);
+    public void messagesInformation(Alert alert, String title, String content){
+        alert.setTitle(title);
         alert.setHeaderText(null);
-        alert.setContentText(contenido);
+        alert.setContentText(content);
         alert.showAndWait();
     }
 

@@ -324,6 +324,7 @@
                </DropShadow>
             </effect>
          </CubicCurve>
+         <Label layoutX="392.0" layoutY="700.0" styleClass="textFontStyle" text="CIENCIAS de la Informaticá UPIICSA ©" />
       </Pane>
    </HBox>
 </AnchorPane>

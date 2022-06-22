@@ -47,6 +47,7 @@ public class LoginController implements Initializable {
 
     //Mensajes
     Alert msjConfirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+    Alert msjInformacion = new Alert(Alert.AlertType.INFORMATION);
 
     //Contador ver
     private int cont=1;
@@ -88,7 +89,7 @@ public class LoginController implements Initializable {
         }
 
         if(event.getSource() == imageClose){
-            Optional<ButtonType> result =mensajeConfirmacion(msjConfirmacion,"Confirmación", "¿Desea Salir?");
+            Optional<ButtonType> result =mensajeConfirmacion(msjConfirmacion,"Confirmación", "¿Desea salir de la aplicación?");
             if(result.get() == ButtonType.OK){
                 Stage stage = (Stage) this.btnLogin.getScene().getWindow();
                 stage.close();
@@ -101,6 +102,13 @@ public class LoginController implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText(contenido);
         return alert.showAndWait();
+    }
+
+    public void mensajeInformacion(Alert alert, String titulo, String contenido){
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(contenido);
+        alert.showAndWait();
     }
 
 }

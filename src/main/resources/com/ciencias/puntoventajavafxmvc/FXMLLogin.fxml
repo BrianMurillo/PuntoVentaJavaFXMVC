@@ -19,18 +19,19 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="571.0" prefWidth="1024.0" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ciencias.puntoventajavafxmvc.controller.LoginController">
+<AnchorPane prefHeight="620.0" prefWidth="1024.0" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ciencias.puntoventajavafxmvc.controller.LoginController">
    <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <Pane prefHeight="560.0" prefWidth="644.0" styleClass="backgroundLoginWhite" HBox.hgrow="ALWAYS">
-         <ImageView fitHeight="447.0" fitWidth="634.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="415.0" fitWidth="634.0" pickOnBounds="true" preserveRatio="true">
             <effect>
-               <Reflection fraction="0.55" topOpacity="0.37" />
+               <Reflection bottomOpacity="0.06" fraction="0.6" topOpacity="0.37" />
             </effect>
             <Image url="@img/fondo.png" />
          </ImageView>
+         <Label layoutY="605.0" text="CIENCIAS de la Informática UPIICSA ©" />
       </Pane>
       <Pane prefHeight="560.0" prefWidth="401.0" styleClass="backgroundLoginWhite" HBox.hgrow="ALWAYS">
-         <VBox alignment="CENTER" layoutX="18.0" layoutY="41.0" prefHeight="489.0" prefWidth="356.0" styleClass="backgroundLogin">
+         <VBox alignment="CENTER" layoutX="18.0" layoutY="38.0" prefHeight="545.0" prefWidth="356.0" styleClass="backgroundLogin">
             <effect>
                <DropShadow height="14.35" offsetX="2.0" offsetY="1.0" radius="6.75" width="14.65">
                   <color>
@@ -38,7 +39,7 @@
                   </color>
                </DropShadow>
             </effect>
-            <ImageView fitHeight="92.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="105.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
                <Image url="@img/login.png" />
             </ImageView>
             <HBox prefHeight="50.0" prefWidth="356.0">
@@ -55,6 +56,9 @@
                <Pane prefHeight="200.0" prefWidth="200.0">
                   <Separator layoutY="24.0" prefHeight="3.0" prefWidth="103.0" />
                </Pane>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
             </HBox>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <padding>

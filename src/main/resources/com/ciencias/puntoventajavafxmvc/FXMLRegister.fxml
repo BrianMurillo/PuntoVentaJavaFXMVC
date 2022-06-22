@@ -67,7 +67,7 @@
                      <Separator layoutX="38.0" orientation="VERTICAL" prefHeight="42.0" prefWidth="0.0" />
                   </Pane>
                   <Pane prefHeight="45.0" prefWidth="412.0">
-                     <TextField layoutY="1.0" prefHeight="43.0" prefWidth="252.0" promptText="Name">
+                     <TextField fx:id="txtNombre" layoutY="1.0" prefHeight="43.0" prefWidth="252.0" promptText="Name">
                         <styleClass>
                            <String fx:value="styletextFieldRight" />
                            <String fx:value="textFontStyle" />
@@ -90,7 +90,7 @@
                      </Pane>
                      <Pane prefHeight="45.0" prefWidth="412.0">
                         <children>
-                           <TextField layoutY="1.0" prefHeight="43.0" prefWidth="252.0" promptText="Paternal surname">
+                           <TextField fx:id="txtPaternalSurname" layoutY="1.0" prefHeight="43.0" prefWidth="252.0" promptText="Paternal surname">
                               <styleClass>
                                  <String fx:value="styletextFieldRight" />
                                  <String fx:value="textFontStyle" />
@@ -118,7 +118,7 @@
                      </Pane>
                      <Pane prefHeight="45.0" prefWidth="412.0">
                         <children>
-                           <TextField layoutY="1.0" prefHeight="43.0" prefWidth="252.0" promptText="Maternal surname">
+                           <TextField fx:id="txtMaternalSurname" layoutY="1.0" prefHeight="43.0" prefWidth="252.0" promptText="Maternal surname">
                               <styleClass>
                                  <String fx:value="styletextFieldRight" />
                                  <String fx:value="textFontStyle" />
@@ -146,7 +146,7 @@
                      </Pane>
                      <Pane prefHeight="45.0" prefWidth="412.0">
                         <children>
-                           <TextField layoutY="1.0" prefHeight="43.0" prefWidth="252.0" promptText="Email">
+                           <TextField fx:id="txtEmail" layoutY="1.0" prefHeight="43.0" prefWidth="252.0" promptText="Email">
                               <styleClass>
                                  <String fx:value="styletextFieldRight" />
                                  <String fx:value="textFontStyle" />
@@ -174,7 +174,7 @@
                      </Pane>
                      <Pane prefHeight="45.0" prefWidth="412.0">
                         <children>
-                           <TextField layoutY="1.0" prefHeight="43.0" prefWidth="252.0" promptText="Username">
+                           <TextField fx:id="txtUsername" layoutY="1.0" prefHeight="43.0" prefWidth="252.0" promptText="Username">
                               <styleClass>
                                  <String fx:value="styletextFieldRight" />
                                  <String fx:value="textFontStyle" />
@@ -199,7 +199,7 @@
                      <Separator layoutX="36.0" orientation="VERTICAL" prefHeight="42.0" prefWidth="6.0" />
                   </Pane>
                   <Pane prefHeight="44.0" prefWidth="370.0">
-                     <TextField layoutX="-2.0" layoutY="1.0" prefHeight="42.0" prefWidth="211.0" promptText="Password">
+                     <TextField fx:id="txtPasswordView" layoutX="-2.0" layoutY="1.0" prefHeight="42.0" prefWidth="211.0" promptText="Password">
                         <styleClass>
                            <String fx:value="backgroundLoginWhite" />
                            <String fx:value="textFontStyle" />
@@ -207,21 +207,21 @@
                         </styleClass>
                      </TextField>
                      <Separator layoutX="208.0" orientation="VERTICAL" prefHeight="42.0" prefWidth="6.0" />
-                     <PasswordField layoutY="1.0" prefHeight="42.0" prefWidth="209.0" promptText="Password" styleClass="backgroundLoginWhite">
+                     <PasswordField fx:id="txtPassword" layoutY="1.0" prefHeight="42.0" prefWidth="209.0" promptText="Password" styleClass="backgroundLoginWhite">
                         <font>
                            <Font size="15.0" />
                         </font>
                      </PasswordField>
                   </Pane>
                   <Pane prefHeight="200.0" prefWidth="200.0" styleClass="styletextFieldRight">
-                     <ImageView fitHeight="25.0" fitWidth="28.0" layoutX="8.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fx:id="imageNotSee" fitHeight="25.0" fitWidth="28.0" layoutX="8.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                         <Image url="@img/notvisibility.png" />
                         <styleClass>
                            <String fx:value="styleCursorHand" />
                            <String fx:value="styleRotate" />
                         </styleClass>
                      </ImageView>
-                     <ImageView fitHeight="25.0" fitWidth="28.0" layoutX="9.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fx:id="imageSee" fitHeight="25.0" fitWidth="28.0" layoutX="9.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                         <Image url="@img/visibility.png" />
                         <styleClass>
                            <String fx:value="styleCursorHand" />
@@ -244,7 +244,7 @@
                      </Pane>
                      <Pane prefHeight="45.0" prefWidth="412.0">
                         <children>
-                           <TextField layoutY="1.0" prefHeight="43.0" prefWidth="252.0" promptText="Telefono">
+                           <TextField fx:id="txtPhone" layoutY="1.0" prefHeight="43.0" prefWidth="252.0" promptText="Telefono">
                               <styleClass>
                                  <String fx:value="styletextFieldRight" />
                                  <String fx:value="textFontStyle" />
@@ -263,22 +263,22 @@
                      <Insets top="10.0" />
                   </VBox.margin>
                   <children>
-                     <RadioButton layoutX="1.0" layoutY="6.0" mnemonicParsing="false" styleClass="styleCursorHand" text="Man">
+                     <RadioButton fx:id="rbMan" layoutX="1.0" layoutY="6.0" mnemonicParsing="false" styleClass="styleCursorHand" text="Man">
                         <padding>
                            <Insets left="2.0" />
                         </padding></RadioButton>
-                     <RadioButton layoutX="55.0" layoutY="6.0" mnemonicParsing="false" styleClass="styleCursorHand" text="Woman" />
-                     <ComboBox layoutX="1.0" layoutY="67.0" prefHeight="25.0" prefWidth="70.0" promptText="Day:">
+                     <RadioButton fx:id="rbWoman" layoutX="55.0" layoutY="6.0" mnemonicParsing="false" styleClass="styleCursorHand" text="Woman" />
+                     <ComboBox fx:id="cbxDay" layoutX="1.0" layoutY="67.0" prefHeight="25.0" prefWidth="70.0" promptText="Day:">
                         <styleClass>
                            <String fx:value="styleRadius" />
                            <String fx:value="styleCursorHand" />
                         </styleClass></ComboBox>
-                     <ComboBox layoutX="76.0" layoutY="67.0" prefHeight="25.0" prefWidth="135.0" promptText="Mouth:">
+                     <ComboBox fx:id="cbxMouth" layoutX="76.0" layoutY="67.0" prefHeight="25.0" prefWidth="135.0" promptText="Mouth:">
                         <styleClass>
                            <String fx:value="styleRadius" />
                            <String fx:value="styleCursorHand" />
                         </styleClass></ComboBox>
-                     <ComboBox layoutX="215.0" layoutY="67.0" prefHeight="25.0" prefWidth="81.0" promptText="Year:">
+                     <ComboBox fx:id="cbxYear" layoutX="215.0" layoutY="67.0" prefHeight="25.0" prefWidth="81.0" promptText="Year:">
                         <styleClass>
                            <String fx:value="styleRadius" />
                            <String fx:value="styleCursorHand" />
@@ -286,7 +286,7 @@
                      <Label layoutX="1.0" layoutY="33.0" styleClass="textFieldLogin" text="Birthday:" />
                   </children>
                </Pane>
-               <Button alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="45.0" prefWidth="272.0" styleClass="buttonSignin" text="Register">
+               <Button fx:id="btnRegister" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="45.0" prefWidth="272.0" styleClass="buttonSignin" text="Register">
                   <VBox.margin>
                      <Insets top="10.0" />
                   </VBox.margin>
@@ -304,13 +304,13 @@
                </DropShadow>
             </effect>
          </CubicCurve>
-         <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="574.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">
+         <ImageView fx:id="imgCerrar" fitHeight="23.0" fitWidth="23.0" layoutX="574.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">
             <Image url="@img/cerrar.png" />
          </ImageView>
-         <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="545.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">
+         <ImageView fx:id="imgMinimizar" fitHeight="23.0" fitWidth="23.0" layoutX="545.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">
             <Image url="@img/minimizar.png" />
          </ImageView>
-         <Button alignment="CENTER" layoutX="246.0" layoutY="645.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="45.0" prefWidth="119.0" styleClass="buttonSignin" text="Regresar" />
+         <Button fx:id="btnReturn" alignment="CENTER" layoutX="246.0" layoutY="645.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="45.0" prefWidth="119.0" styleClass="buttonSignin" text="Return" />
          <ImageView fitHeight="429.0" fitWidth="611.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@img/registerFont.png" />

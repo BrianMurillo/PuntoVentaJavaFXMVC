@@ -99,10 +99,14 @@
                         </styleClass>
                      </TextField>
                      <Separator layoutX="208.0" orientation="VERTICAL" prefHeight="42.0" prefWidth="6.0" />
-                     <PasswordField fx:id="txtPass" layoutY="1.0" prefHeight="40.0" prefWidth="209.0" promptText="********" styleClass="backgroundLoginWhite">
+                     <PasswordField fx:id="txtPass" layoutY="1.0" prefHeight="40.0" prefWidth="209.0" promptText="********">
                         <font>
                            <Font size="15.0" />
                         </font>
+                        <styleClass>
+                           <String fx:value="backgroundLoginWhite" />
+                           <String fx:value="textFieldLogin" />
+                        </styleClass>
                      </PasswordField>
                   </Pane>
                   <Pane prefHeight="200.0" prefWidth="200.0" styleClass="styletextFieldRight">
@@ -128,24 +132,24 @@
                   </VBox.margin>
                </Button>
             </VBox>
-            <Pane prefHeight="72.0" prefWidth="356.0">
+            <Pane prefHeight="102.0" prefWidth="296.0">
                <VBox.margin>
                   <Insets left="30.0" right="30.0" />
                </VBox.margin>
-               <Label fx:id="lblForgotPassword" layoutX="197.0" layoutY="16.0" text="Forgot password?">
+               <Label fx:id="lblForgotPassword" layoutX="188.0" layoutY="19.0" text="Forgot password?">
                   <styleClass>
                      <String fx:value="textFontStyle" />
                      <String fx:value="styleCursorHandUnderline" />
                   </styleClass>
                </Label>
-               <Label layoutX="63.0" layoutY="50.0" styleClass="textFontStyle" text="Not a member?" />
-               <Label fx:id="lblRegister" layoutX="152.0" layoutY="50.0" text="Create Account">
+               <Label layoutX="61.0" layoutY="73.0" styleClass="textFontStyle" text="Not a member?" />
+               <Label fx:id="lblRegister" layoutX="150.0" layoutY="73.0" text="Create Account">
                   <styleClass>
                      <String fx:value="textFontStyle" />
                      <String fx:value="styleCursorHandUnderline" />
                   </styleClass>
                </Label>
-               <CheckBox fx:id="ckbRemember" layoutY="15.0" mnemonicParsing="false" text="Remember me">
+               <CheckBox fx:id="ckbRemember" layoutX="7.0" layoutY="19.0" mnemonicParsing="false" text="Remember me">
                   <styleClass>
                      <String fx:value="textFontStyle" />
                      <String fx:value="styleCursorHandUnderline" />

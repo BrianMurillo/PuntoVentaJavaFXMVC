@@ -63,6 +63,7 @@
 .styleCursorHandUnderline:hover{
     -fx-cursor: hand;
     -fx-underline: true;
+    -fx-font-size: 13px;
 }
 
 .styleCursorHand{

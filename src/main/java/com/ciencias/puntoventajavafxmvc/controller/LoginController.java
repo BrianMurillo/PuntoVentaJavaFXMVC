@@ -6,7 +6,6 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;

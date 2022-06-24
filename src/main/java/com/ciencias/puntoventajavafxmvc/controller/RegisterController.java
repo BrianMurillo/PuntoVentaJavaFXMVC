@@ -2,7 +2,7 @@ package com.ciencias.puntoventajavafxmvc.controller;
 
 import com.ciencias.puntoventajavafxmvc.DAO.DataCBXRegister;
 import com.ciencias.puntoventajavafxmvc.DAO.MessageHandling;
-import com.ciencias.puntoventajavafxmvc.DAO.Validation;
+import com.ciencias.puntoventajavafxmvc.validation.Validation;
 import com.ciencias.puntoventajavafxmvc.MainApp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

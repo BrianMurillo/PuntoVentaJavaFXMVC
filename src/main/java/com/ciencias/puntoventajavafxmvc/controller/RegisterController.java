@@ -202,6 +202,10 @@ public class RegisterController implements Initializable {
         if(event.getSource() == txtMaternalSurname){
             Validation.validateInputText(txtMaternalSurname);
         }
+
+        if(event.getSource() == txtPhone){
+            Validation.validateInputNumber(txtPhone);
+        }
     }
 
     @FXML

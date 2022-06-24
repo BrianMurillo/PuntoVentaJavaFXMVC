@@ -54,7 +54,6 @@ public class LoginController implements Initializable {
     @FXML
     private ImageView imageClose;
 
-    //Messages for user
     Alert msjConfirmation = new Alert(Alert.AlertType.CONFIRMATION);
     Alert msjInformation = new Alert(Alert.AlertType.INFORMATION);
 

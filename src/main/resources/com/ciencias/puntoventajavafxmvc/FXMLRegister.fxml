@@ -67,7 +67,7 @@
                      <Separator layoutX="38.0" orientation="VERTICAL" prefHeight="42.0" prefWidth="0.0" />
                   </Pane>
                   <Pane prefHeight="45.0" prefWidth="412.0">
-                     <TextField fx:id="txtNombre" layoutY="1.0" onKeyPressed="#txtNameOnKeyPressed" prefHeight="43.0" prefWidth="252.0" promptText="Name">
+                     <TextField fx:id="txtName" layoutY="1.0" onKeyPressed="#txtNameOnKeyPressed" onKeyTyped="#txtOnKeyTyped" prefHeight="43.0" prefWidth="252.0" promptText="Name">
                         <styleClass>
                            <String fx:value="styletextFieldRight" />
                            <String fx:value="textFontStyle" />
@@ -90,7 +90,7 @@
                      </Pane>
                      <Pane prefHeight="45.0" prefWidth="412.0">
                         <children>
-                           <TextField fx:id="txtPaternalSurname" layoutY="1.0" onKeyPressed="#txtPSurnameOnKeyPressed" prefHeight="43.0" prefWidth="252.0" promptText="Paternal surname">
+                           <TextField fx:id="txtPaternalSurname" layoutY="1.0" onKeyPressed="#txtPSurnameOnKeyPressed" onKeyTyped="#txtOnKeyTyped" prefHeight="43.0" prefWidth="252.0" promptText="Paternal surname">
                               <styleClass>
                                  <String fx:value="styletextFieldRight" />
                                  <String fx:value="textFontStyle" />
@@ -118,7 +118,7 @@
                      </Pane>
                      <Pane prefHeight="45.0" prefWidth="412.0">
                         <children>
-                           <TextField fx:id="txtMaternalSurname" layoutY="1.0" onKeyPressed="#txtMSurnameOnKeyPressed" prefHeight="43.0" prefWidth="252.0" promptText="Maternal surname">
+                           <TextField fx:id="txtMaternalSurname" layoutY="1.0" onKeyPressed="#txtMSurnameOnKeyPressed" onKeyTyped="#txtOnKeyTyped" prefHeight="43.0" prefWidth="252.0" promptText="Maternal surname">
                               <styleClass>
                                  <String fx:value="styletextFieldRight" />
                                  <String fx:value="textFontStyle" />
@@ -207,10 +207,15 @@
                         </styleClass>
                      </TextField>
                      <Separator layoutX="208.0" orientation="VERTICAL" prefHeight="42.0" prefWidth="6.0" />
-                     <PasswordField fx:id="txtPassword" layoutY="1.0" onKeyPressed="#txtPasswordOnKeyPressed" prefHeight="42.0" prefWidth="209.0" promptText="Password" styleClass="backgroundLoginWhite">
+                     <PasswordField fx:id="txtPassword" layoutY="1.0" onKeyPressed="#txtPasswordOnKeyPressed" prefHeight="42.0" prefWidth="209.0" promptText="Password">
                         <font>
                            <Font size="15.0" />
                         </font>
+                        <styleClass>
+                           <String fx:value="backgroundLoginWhite" />
+                           <String fx:value="textFontStyle" />
+                           <String fx:value="textFieldLogin" />
+                        </styleClass>
                      </PasswordField>
                   </Pane>
                   <Pane prefHeight="200.0" prefWidth="200.0" styleClass="styletextFieldRight">

@@ -249,7 +249,7 @@
                      </Pane>
                      <Pane prefHeight="45.0" prefWidth="412.0">
                         <children>
-                           <TextField fx:id="txtPhone" layoutY="1.0" onKeyPressed="#txtPhoneOnKeyPressed" prefHeight="43.0" prefWidth="252.0" promptText="Phone">
+                           <TextField fx:id="txtPhone" layoutY="1.0" onKeyPressed="#txtPhoneOnKeyPressed" onKeyTyped="#txtOnKeyTyped" prefHeight="43.0" prefWidth="252.0" promptText="Phone">
                               <styleClass>
                                  <String fx:value="styletextFieldRight" />
                                  <String fx:value="textFontStyle" />

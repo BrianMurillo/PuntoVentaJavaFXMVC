@@ -110,6 +110,7 @@
                         <styleClass>
                            <String fx:value="backgroundLoginWhite" />
                            <String fx:value="textFieldLogin" />
+                           <String fx:value="textFontStyle" />
                         </styleClass>
                      </PasswordField>
                   </Pane>
@@ -159,6 +160,7 @@
                      <String fx:value="styleCursorHandUnderline" />
                   </styleClass>
                </CheckBox>
+               <Separator layoutX="-18.0" layoutY="63.0" prefHeight="3.0" prefWidth="329.0" />
             </Pane>
          </VBox>
          <ImageView fx:id="imageClose" fitHeight="23.0" fitWidth="23.0" layoutX="359.0" layoutY="5.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">

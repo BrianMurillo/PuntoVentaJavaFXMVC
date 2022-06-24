@@ -2,6 +2,7 @@ package com.ciencias.puntoventajavafxmvc.controller;
 
 import com.ciencias.puntoventajavafxmvc.DAO.DataCBXRegister;
 import com.ciencias.puntoventajavafxmvc.DAO.MessageHandling;
+import com.ciencias.puntoventajavafxmvc.DAO.Validation;
 import com.ciencias.puntoventajavafxmvc.MainApp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,7 +24,7 @@ import java.util.ResourceBundle;
 public class RegisterController implements Initializable {
 
     @FXML
-    private TextField txtNombre;
+    private TextField txtName;
 
     @FXML
     private TextField txtPaternalSurname;
@@ -80,10 +81,7 @@ public class RegisterController implements Initializable {
     private ImageView imgClose;
     //Cont imageSee
     private int cont = 1;
-    //Cont radioButton
-    private int contRbMan = 1;
-    private int contRbWoman = 1;
-    //Messages
+
     Alert msjConfirmation = new Alert(Alert.AlertType.CONFIRMATION);
     Alert msjInformation = new Alert(Alert.AlertType.INFORMATION);
 
@@ -192,6 +190,21 @@ public class RegisterController implements Initializable {
     }
 
     @FXML
+    private void txtOnKeyTyped(KeyEvent event){
+        if(event.getSource() == txtName){
+            Validation.validateInputText(txtName);
+        }
+
+        if(event.getSource() == txtPaternalSurname){
+            Validation.validateInputText(txtPaternalSurname);
+        }
+
+        if(event.getSource() == txtMaternalSurname){
+            Validation.validateInputText(txtMaternalSurname);
+        }
+    }
+
+    @FXML
     private void onActionEvents(ActionEvent event){
         if (event.getSource() == btnRegister){
 
@@ -216,8 +229,7 @@ public class RegisterController implements Initializable {
         }
 
         if (event.getSource() == rbMan){
-            contRbMan++;
-            if(contRbMan%2 == 0){
+            if(rbMan.isSelected()){
                 rbWoman.setDisable(true);
                 rbMan.setDisable(false);
             } else {
@@ -227,8 +239,7 @@ public class RegisterController implements Initializable {
         }
 
         if (event.getSource() == rbWoman){
-            contRbWoman++;
-            if(contRbWoman%2 == 0){
+            if(rbWoman.isSelected()){
                 rbWoman.setDisable(false);
                 rbMan.setDisable(true);
             } else {

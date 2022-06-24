@@ -1,4 +1,4 @@
-package com.ciencias.puntoventajavafxmvc.DAO;
+package com.ciencias.puntoventajavafxmvc.validation;
 
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;

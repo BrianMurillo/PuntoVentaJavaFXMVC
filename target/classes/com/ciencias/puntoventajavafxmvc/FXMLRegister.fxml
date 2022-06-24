@@ -174,7 +174,7 @@
                      </Pane>
                      <Pane prefHeight="45.0" prefWidth="412.0">
                         <children>
-                           <TextField fx:id="txtUsername" layoutY="1.0" onKeyPressed="#txtUsernameOnKeyPressed" prefHeight="43.0" prefWidth="252.0" promptText="Username">
+                           <TextField fx:id="txtUsername" layoutY="1.0" onKeyPressed="#txtUsernameOnKeyPressed" onKeyTyped="#txtOnKeyTyped" prefHeight="43.0" prefWidth="252.0" promptText="Username">
                               <styleClass>
                                  <String fx:value="styletextFieldRight" />
                                  <String fx:value="textFontStyle" />

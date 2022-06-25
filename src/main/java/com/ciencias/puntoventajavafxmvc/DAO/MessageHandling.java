@@ -14,9 +14,9 @@ public class MessageHandling {
         return alert.showAndWait();
     }
 
-    public static void messagesInformation(Alert alert, String title, String content){
+    public static void messagesInformation(Alert alert, String title, String header,String content){
         alert.setTitle(title);
-        alert.setHeaderText(null);
+        alert.setHeaderText(header);
         alert.setContentText(content);
         alert.showAndWait();
     }

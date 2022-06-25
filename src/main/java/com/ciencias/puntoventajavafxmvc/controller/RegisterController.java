@@ -4,6 +4,7 @@ import com.ciencias.puntoventajavafxmvc.DAO.DataCBXRegister;
 import com.ciencias.puntoventajavafxmvc.DAO.MessageHandling;
 import com.ciencias.puntoventajavafxmvc.validation.Validation;
 import com.ciencias.puntoventajavafxmvc.MainApp;
+import com.ciencias.puntoventajavafxmvc.validation.ValidationKeyPressedRegister;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -136,56 +137,56 @@ public class RegisterController implements Initializable {
     @FXML
     private void txtNameOnKeyPressed(KeyEvent event){
         if(event.getCode() == KeyCode.ENTER){
-
+            ValidationKeyPressedRegister.validateTxtName(txtName,txtPaternalSurname);
         }
     }
 
     @FXML
     private void txtPSurnameOnKeyPressed(KeyEvent event){
         if(event.getCode() == KeyCode.ENTER){
-
+            ValidationKeyPressedRegister.validateTxtPaternalSurname(txtPaternalSurname,txtMaternalSurname);
         }
     }
 
     @FXML
     private void txtMSurnameOnKeyPressed(KeyEvent event){
         if(event.getCode() == KeyCode.ENTER){
-
+            ValidationKeyPressedRegister.validateTxtMaternalSurname(txtMaternalSurname,txtEmail);
         }
     }
 
     @FXML
     private void txtEmailOnKeyPressed(KeyEvent event){
         if(event.getCode() == KeyCode.ENTER){
-
+            ValidationKeyPressedRegister.validateTxtEmail(txtEmail,txtUsername);
         }
     }
 
     @FXML
     private void txtUsernameOnKeyPressed(KeyEvent event){
         if(event.getCode() == KeyCode.ENTER){
-
+            ValidationKeyPressedRegister.validateTxtUsername(txtUsername,txtPassword);
         }
     }
 
     @FXML
     private void txtPasswordOnKeyPressed(KeyEvent event){
         if(event.getCode() == KeyCode.ENTER){
-
+            ValidationKeyPressedRegister.validateTxtPassword(txtPassword,txtPhone);
         }
     }
 
     @FXML
     private void txtPasswordViewUserOnKeyPressed(KeyEvent event){
         if(event.getCode() == KeyCode.ENTER){
-
+            ValidationKeyPressedRegister.validateTxtPassword(txtPasswordView,txtPhone);
         }
     }
 
     @FXML
     private void txtPhoneOnKeyPressed(KeyEvent event){
         if(event.getCode() == KeyCode.ENTER){
-
+            ValidationKeyPressedRegister.validateTxtPhone(txtPhone);
         }
     }
 

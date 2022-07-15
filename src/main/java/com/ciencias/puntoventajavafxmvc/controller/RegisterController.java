@@ -231,7 +231,7 @@ public class RegisterController implements Initializable {
         if (event.getSource() == btnRegister){
             if(validationFields()){
                 if(!userDAO.validationEmail(txtEmail.getText())){
-                    User user = recuperarDatos();
+                    User user = recoverData();
                     if (userDAO.saveUser(user)) {
                         MessageHandling.messagesInformation(msjInformation,"Information",null,"Register Completed\n");
                         viewLogin();
@@ -288,7 +288,7 @@ public class RegisterController implements Initializable {
         stageRegister.close();
     }
 
-    private User recuperarDatos() {
+    private User recoverData() {
         User user = new User();
         user.setName(txtName.getText());
         user.setPaternalSurname(txtPaternalSurname.getText());

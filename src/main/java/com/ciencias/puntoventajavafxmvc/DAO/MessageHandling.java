@@ -20,4 +20,11 @@ public class MessageHandling {
         alert.setContentText(content);
         alert.showAndWait();
     }
+
+    public static void messagesError(Alert alert, String title, String header,String content){
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
 }

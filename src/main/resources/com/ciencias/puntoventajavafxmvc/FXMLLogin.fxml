@@ -75,7 +75,7 @@
                      <Separator layoutX="38.0" orientation="VERTICAL" prefHeight="42.0" prefWidth="0.0" />
                   </Pane>
                   <Pane prefHeight="45.0" prefWidth="412.0">
-                     <TextField fx:id="txtUser" layoutY="1.0" onKeyPressed="#txtUserOnKeyPressed" prefHeight="40.0" prefWidth="252.0" promptText="User/email">
+                     <TextField fx:id="txtUser" layoutY="1.0" onKeyPressed="#txtUserOnKeyPressed" prefHeight="40.0" prefWidth="252.0" promptText="bmurillo@gmail.com">
                         <styleClass>
                            <String fx:value="styletextFieldRight" />
                            <String fx:value="textFontStyle" />

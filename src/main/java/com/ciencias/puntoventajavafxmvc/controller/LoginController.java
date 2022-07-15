@@ -1,7 +1,12 @@
 package com.ciencias.puntoventajavafxmvc.controller;
 
 import com.ciencias.puntoventajavafxmvc.DAO.MessageHandling;
+import com.ciencias.puntoventajavafxmvc.DAO.UserDAO;
 import com.ciencias.puntoventajavafxmvc.MainApp;
+import com.ciencias.puntoventajavafxmvc.validation.ValidationKeyPressedRegister;
+import com.ciencias.puntoventajavafxmvc.validation.ValidationRegister;
+import de.mkammerer.argon2.Argon2;
+import de.mkammerer.argon2.Argon2Factory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -56,9 +61,18 @@ public class LoginController implements Initializable {
 
     Alert msjConfirmation = new Alert(Alert.AlertType.CONFIRMATION);
     Alert msjInformation = new Alert(Alert.AlertType.INFORMATION);
+    Alert msjError = new Alert(Alert.AlertType.ERROR);
 
     //Cont see
     private int cont=1;
+
+    // Argon2Types.ARGON2id
+    // salt 32 bytes
+    // Hash length 64 bytes
+    Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id, 32, 64);
+
+
+    private UserDAO userDAO = new UserDAO();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -116,7 +130,7 @@ public class LoginController implements Initializable {
                 scene = new Scene(fxmlLoader.load());
             } catch (IOException e) {
                 e.printStackTrace();
-                System.out.println(e);
+                System.out.println(e.toString());
             }
             stage.initStyle(StageStyle.UNDECORATED);
             stage.setScene(scene);
@@ -130,28 +144,57 @@ public class LoginController implements Initializable {
     @FXML
     private void txtUserOnKeyPressed(KeyEvent event){
         if(event.getCode() == KeyCode.ENTER){
-
+            if(cont % 2 == 0) {
+                ValidationKeyPressedRegister.validateTxtEmailLogin(txtUser, txtPassView);
+            } else {
+                ValidationKeyPressedRegister.validateTxtEmailLogin(txtUser,txtPass);
+            }
         }
     }
 
     @FXML
     private void txtPassOnKeyPressed(KeyEvent event){
         if(event.getCode() == KeyCode.ENTER){
-
+            ValidationKeyPressedRegister.validateTxtPasswordLogin(txtPass);
         }
     }
 
     @FXML
     private void txtPassViewUserOnKeyPressed(KeyEvent event){
         if(event.getCode() == KeyCode.ENTER){
-
+            ValidationKeyPressedRegister.validateTxtPasswordLogin(txtPassView);
         }
     }
 
     @FXML
     private void onActionEvents(ActionEvent event){
         if (event.getSource() == btnLogin){
-
+            if(validationFields()){
+                if(!"".equals(userDAO.recuperationPass(txtUser.getText()))){
+                    String passHash = userDAO.recuperationPass(txtUser.getText());
+                    if(argon2.verify(passHash, txtPasswordSelect())){
+                        System.out.println("Bienvenido");
+                    } else {
+                        MessageHandling.messagesError(msjError,"Error","Sign In failed\n","Password Incorrect\n");
+                    }
+                } else {
+                    MessageHandling.messagesError(msjError,"Error","Sign In failed\n","Email Incorrect\n");
+                }
+            }
         }
+    }
+
+    private String txtPasswordSelect() {
+        if(cont % 2 == 0){
+            return txtPassView.getText();
+        } else {
+            return  txtPass.getText();
+        }
+    }
+
+    private boolean validationFields() {
+        boolean vEmail = ValidationRegister.validationEmail(txtUser);
+        boolean vPassword = ValidationRegister.validationPassword(cont,txtPass,txtPassView);
+        return  vEmail && vPassword;
     }
 }

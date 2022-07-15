@@ -51,17 +51,7 @@ public class ValidationKeyPressedRegister {
     }
 
     public static void validateTxtEmail(TextField txtEmail, TextField txtUsername){
-        if(!"".equals(txtEmail.getText())){
-            if(ValidationRegularExpressions.validateEmail(txtEmail.getText())){
-                txtUsername.requestFocus();
-            } else {
-                MessageHandling.messagesInformation(msjInformation,"Information","Enter a correct email","Example: \nmuso@gmail.com \nbmurillo@outlook.com");
-                txtEmail.setText("");
-                txtEmail.requestFocus();
-            }
-        } else {
-            MessageHandling.messagesInformation(msjInformation,"Information",null,"Enter a email");
-        }
+        validationEmail(txtEmail, txtUsername);
     }
 
     public static void validateTxtUsername(TextField txtUsername, TextField txtPassword){
@@ -101,6 +91,36 @@ public class ValidationKeyPressedRegister {
             }
         } else {
             MessageHandling.messagesInformation(msjInformation,"Information",null,"Enter a phone");
+        }
+    }
+
+    public static void validateTxtEmailLogin(TextField txtEmail, TextField txtPassword){
+        validationEmail(txtEmail, txtPassword);
+    }
+
+    private static void validationEmail(TextField txtEmail, TextField txtPassword) {
+        if(!"".equals(txtEmail.getText())){
+            if(ValidationRegularExpressions.validateEmail(txtEmail.getText())){
+                txtPassword.requestFocus();
+            } else {
+                MessageHandling.messagesInformation(msjInformation,"Information","Enter a correct email","Example: \nmuso@gmail.com \nbmurillo@outlook.com");
+                txtEmail.setText("");
+                txtEmail.requestFocus();
+            }
+        } else {
+            MessageHandling.messagesInformation(msjInformation,"Information",null,"Enter a email");
+        }
+    }
+
+    public static void validateTxtPasswordLogin(TextField txtPassword){
+        if(!"".equals(txtPassword.getText())){
+            if(!ValidationRegularExpressions.validatePassword(txtPassword.getText())){
+                MessageHandling.messagesInformation(msjInformation,"Information",null,"Password Incorrect");
+                txtPassword.setText("");
+                txtPassword.requestFocus();
+            }
+        } else {
+            MessageHandling.messagesInformation(msjInformation,"Information",null,"Enter a password");
         }
     }
 }

@@ -10,7 +10,7 @@ public class User {
     private String password;
     private String phone;
     private char gender;
-    private String bithday;
+    private String birthday;
 
     public User() {
     }
@@ -79,11 +79,11 @@ public class User {
         this.gender = gender;
     }
 
-    public String getBithday() {
-        return bithday;
+    public String getBirthday() {
+        return birthday;
     }
 
-    public void setBithday(String bithday) {
-        this.bithday = bithday;
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
 }

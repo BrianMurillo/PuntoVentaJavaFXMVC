@@ -2,6 +2,7 @@ module com.ciencias.puntoventajavafxmvc {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires de.mkammerer.argon2;
 
 
     opens com.ciencias.puntoventajavafxmvc to javafx.fxml;

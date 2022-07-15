@@ -20,9 +20,9 @@
 <?import javafx.scene.shape.CubicCurve?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="715.0" prefWidth="1024.0" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ciencias.puntoventajavafxmvc.controller.RegisterController">
+<AnchorPane prefHeight="715.0" prefWidth="1024.0" style="-fx-background-radius: 30;" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ciencias.puntoventajavafxmvc.controller.RegisterController">
    <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-      <Pane prefHeight="571.0" prefWidth="780.0" styleClass="backgroundWhite" HBox.hgrow="ALWAYS">
+      <Pane prefHeight="571.0" prefWidth="780.0" style="-fx-background-radius: 30 0 0 30;" styleClass="backgroundWhite" HBox.hgrow="ALWAYS">
          <VBox alignment="CENTER" layoutX="44.0" layoutY="14.0" prefHeight="688.0" prefWidth="356.0" styleClass="backgroundLogin">
             <effect>
                <DropShadow height="14.5" offsetX="-3.0" offsetY="2.0" radius="6.7875" width="14.65">
@@ -299,8 +299,8 @@
             </VBox>
          </VBox>
       </Pane>
-      <Pane prefHeight="660.0" prefWidth="977.0" styleClass="backgroundWhite">
-         <CubicCurve controlX1="608.7987060546875" controlX2="375.80517578125" controlY1="2.7987060546875" controlY2="142.80511474609375" endX="457.0" endY="-5.0" fill="DODGERBLUE" layoutX="153.0" layoutY="5.0" startX="-198.2012939453125" startY="-5.0" stroke="BLACK" styleClass="styleForms">
+      <Pane prefHeight="660.0" prefWidth="977.0" style="-fx-background-radius: 0 30 30 0;" styleClass="backgroundWhite">
+         <CubicCurve controlX1="608.7987060546875" controlX2="504.744384765625" controlY1="2.7987060546875" controlY2="145.8631591796875" endX="400.7984619140625" endY="-5.0" fill="DODGERBLUE" layoutX="153.0" layoutY="5.0" startX="-198.2012939453125" startY="-5.0" stroke="BLACK" styleClass="styleForms">
             <effect>
                <DropShadow height="134.83" radius="37.602500000000006" spread="0.65" width="17.58">
                   <color>
@@ -309,10 +309,10 @@
                </DropShadow>
             </effect>
          </CubicCurve>
-         <ImageView fx:id="imgClose" fitHeight="23.0" fitWidth="23.0" layoutX="574.0" layoutY="14.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">
+         <ImageView fx:id="imgClose" fitHeight="23.0" fitWidth="23.0" layoutX="551.0" layoutY="14.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">
             <Image url="@img/cerrar.png" />
          </ImageView>
-         <ImageView fx:id="imgMinimize" fitHeight="23.0" fitWidth="23.0" layoutX="545.0" layoutY="14.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">
+         <ImageView fx:id="imgMinimize" fitHeight="23.0" fitWidth="23.0" layoutX="517.0" layoutY="14.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">
             <Image url="@img/minimizar.png" />
          </ImageView>
          <Button fx:id="btnReturn" alignment="CENTER" layoutX="246.0" layoutY="645.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionEvents" prefHeight="45.0" prefWidth="119.0" styleClass="buttonSignin" text="Return" />
@@ -320,7 +320,7 @@
             <image>
                <Image url="@img/registerFont.png" />
             </image></ImageView>
-         <CubicCurve controlX1="448.794921875" controlX2="153.7987060546875" controlY1="114.793701171875" controlY2="35.7987060546875" endX="280.0" endY="122.0" fill="DODGERBLUE" layoutX="331.0" layoutY="593.0" startX="-366.205078125" startY="122.0" stroke="BLACK" styleClass="styleForms">
+         <CubicCurve controlX1="448.794921875" controlX2="295.0" controlY1="114.793701171875" controlY2="-26.206787109375" endX="242.908203125" endY="123.0" fill="DODGERBLUE" layoutX="331.0" layoutY="593.0" startX="-366.205078125" startY="122.0" stroke="BLACK" styleClass="styleForms">
             <effect>
                <DropShadow height="174.77" radius="43.1925" spread="0.62" width="0.0">
                   <color>
@@ -329,7 +329,7 @@
                </DropShadow>
             </effect>
          </CubicCurve>
-         <Label layoutX="392.0" layoutY="700.0" styleClass="textFontStyle" text="CIENCIAS de la Informaticá UPIICSA ©" />
+         <Label layoutX="357.0" layoutY="701.0" styleClass="textFontStyle" text="CIENCIAS de la Informática UPIICSA ©" />
       </Pane>
    </HBox>
 </AnchorPane>

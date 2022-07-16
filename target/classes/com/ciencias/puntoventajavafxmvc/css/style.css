@@ -88,3 +88,7 @@
     -fx-fill: #D9D9D9;
     -fx-stroke: #D9D9D9;
 }
+
+.styleGradient{
+    -fx-background-color: linear-gradient(to right top, #81d6d5, #a4dfee, #cbe7fa, #ebf1fe, #ffffff);
+}

@@ -6,7 +6,7 @@ import com.ciencias.puntoventajavafxmvc.DAO.UserDAO;
 import com.ciencias.puntoventajavafxmvc.DTO.User;
 import com.ciencias.puntoventajavafxmvc.validation.Validation;
 import com.ciencias.puntoventajavafxmvc.MainApp;
-import com.ciencias.puntoventajavafxmvc.validation.ValidationKeyPressedRegister;
+import com.ciencias.puntoventajavafxmvc.validation.ValidationKeyPressed;
 import com.ciencias.puntoventajavafxmvc.validation.ValidationRegister;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
@@ -20,6 +20,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import java.io.IOException;
@@ -150,56 +151,56 @@ public class RegisterController implements Initializable {
     @FXML
     private void txtNameOnKeyPressed(KeyEvent event){
         if(event.getCode() == KeyCode.ENTER){
-            ValidationKeyPressedRegister.validateTxtName(txtName,txtPaternalSurname);
+            ValidationKeyPressed.validateTxtName(txtName,txtPaternalSurname);
         }
     }
 
     @FXML
     private void txtPSurnameOnKeyPressed(KeyEvent event){
         if(event.getCode() == KeyCode.ENTER){
-            ValidationKeyPressedRegister.validateTxtPaternalSurname(txtPaternalSurname,txtMaternalSurname);
+            ValidationKeyPressed.validateTxtPaternalSurname(txtPaternalSurname,txtMaternalSurname);
         }
     }
 
     @FXML
     private void txtMSurnameOnKeyPressed(KeyEvent event){
         if(event.getCode() == KeyCode.ENTER){
-            ValidationKeyPressedRegister.validateTxtMaternalSurname(txtMaternalSurname,txtEmail);
+            ValidationKeyPressed.validateTxtMaternalSurname(txtMaternalSurname,txtEmail);
         }
     }
 
     @FXML
     private void txtEmailOnKeyPressed(KeyEvent event){
         if(event.getCode() == KeyCode.ENTER){
-            ValidationKeyPressedRegister.validateTxtEmail(txtEmail,txtUsername);
+            ValidationKeyPressed.validateTxtEmail(txtEmail,txtUsername);
         }
     }
 
     @FXML
     private void txtUsernameOnKeyPressed(KeyEvent event){
         if(event.getCode() == KeyCode.ENTER){
-            ValidationKeyPressedRegister.validateTxtUsername(txtUsername,txtPassword);
+            ValidationKeyPressed.validateTxtUsername(txtUsername,txtPassword);
         }
     }
 
     @FXML
     private void txtPasswordOnKeyPressed(KeyEvent event){
         if(event.getCode() == KeyCode.ENTER){
-            ValidationKeyPressedRegister.validateTxtPassword(txtPassword,txtPhone);
+            ValidationKeyPressed.validateTxtPassword(txtPassword,txtPhone);
         }
     }
 
     @FXML
     private void txtPasswordViewUserOnKeyPressed(KeyEvent event){
         if(event.getCode() == KeyCode.ENTER){
-            ValidationKeyPressedRegister.validateTxtPassword(txtPasswordView,txtPhone);
+            ValidationKeyPressed.validateTxtPassword(txtPasswordView,txtPhone);
         }
     }
 
     @FXML
     private void txtPhoneOnKeyPressed(KeyEvent event){
         if(event.getCode() == KeyCode.ENTER){
-            ValidationKeyPressedRegister.validateTxtPhone(txtPhone);
+            ValidationKeyPressed.validateTxtPhone(txtPhone);
         }
     }
 
@@ -280,7 +281,8 @@ public class RegisterController implements Initializable {
             e.printStackTrace();
             System.out.println(e);
         }
-        stage.initStyle(StageStyle.UNDECORATED);
+        stage.initStyle(StageStyle.TRANSPARENT);
+        scene.setFill(Color.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
 
@@ -295,12 +297,20 @@ public class RegisterController implements Initializable {
         user.setMaternalSurname(txtMaternalSurname.getText());
         user.setEmail(txtEmail.getText());
         user.setUsername(txtUsername.getText());
-        String hash = argon2.hash(11, 32768, 1, txtPassword.getText());
+        String hash = argon2.hash(11, 32768, 1, txtPasswordSelect());
         user.setPassword(hash);
         user.setPhone(txtPhone.getText());
         user.setGender(selectionGender());
         user.setBirthday(selectionBirthday());
         return user;
+    }
+
+    private String txtPasswordSelect() {
+        if(cont % 2 == 0){
+            return txtPasswordView.getText();
+        } else {
+            return  txtPassword.getText();
+        }
     }
 
     private boolean validationFields() {

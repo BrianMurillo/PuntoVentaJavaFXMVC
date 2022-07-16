@@ -4,7 +4,7 @@ import com.ciencias.puntoventajavafxmvc.DAO.MessageHandling;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
-public class ValidationKeyPressedRegister {
+public class ValidationKeyPressed {
 
     private static final Alert msjInformation = new Alert(Alert.AlertType.INFORMATION);
 

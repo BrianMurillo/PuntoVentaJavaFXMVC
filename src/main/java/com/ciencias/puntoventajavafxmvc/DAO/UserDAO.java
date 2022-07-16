@@ -92,4 +92,55 @@ public class UserDAO {
         return pass;
     }
 
+    public boolean forgotPassword(User user){
+        String sql = "Select * From users Where email=? and username=? and birthday=?";
+        try{
+            con = ConexionBD.connection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, user.getEmail());
+            ps.setString(2, user.getUsername());
+            ps.setString(3, user.getBirthday());
+            rs = ps.executeQuery();
+            if(rs.next()){
+                return true;
+            }
+        } catch (SQLException | NullPointerException ex) {
+            System.out.println(ex.toString());
+        } finally {
+            try{
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException | NullPointerException ex){
+                System.out.println(ex.toString());
+            }
+        }
+        return false;
+    }
+
+    public boolean updatePassword(User user){
+        String sql = "Update users set password=? where email=? and username=? and birthday=?";
+        try{
+            con = ConexionBD.connection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, user.getPassword());
+            ps.setString(2, user.getEmail());
+            ps.setString(3, user.getUsername());
+            ps.setString(4, user.getBirthday());
+            int res = ps.executeUpdate();
+            return true;
+        } catch (SQLException | NullPointerException ex) {
+            System.out.println(ex.toString());
+        } finally {
+            try{
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException | NullPointerException ex){
+                System.out.println(ex.toString());
+            }
+        }
+        return false;
+    }
+
 }

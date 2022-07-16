@@ -92,6 +92,32 @@ public class UserDAO {
         return pass;
     }
 
+    public int recuperationIdUser(String email){
+        String sql = "Select id_user from users where email=?";
+        int idUser = 0;
+        try{
+            con = ConexionBD.connection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1,email);
+            rs = ps.executeQuery();
+            if(rs.next()){
+                idUser = rs.getInt("id_user");
+            }
+        } catch (SQLException e){
+            System.out.println(e.toString());
+            idUser = 0;
+        } finally {
+            try{
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException | NullPointerException e){
+                System.out.println(e.toString());
+            }
+        }
+        return idUser;
+    }
+
     public boolean forgotPassword(User user){
         String sql = "Select * From users Where email=? and username=? and birthday=?";
         try{

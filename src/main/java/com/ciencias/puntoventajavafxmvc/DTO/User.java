@@ -2,6 +2,7 @@ package com.ciencias.puntoventajavafxmvc.DTO;
 
 public class User {
 
+    private int id_user;
     private String name;
     private String paternalSurname;
     private String maternalSurname;
@@ -11,6 +12,23 @@ public class User {
     private String phone;
     private char gender;
     private String birthday;
+    private int active;
+
+    public int getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
+    }
+
+    public int getActive() {
+        return active;
+    }
+
+    public void setActive(int active) {
+        this.active = active;
+    }
 
     public User() {
     }

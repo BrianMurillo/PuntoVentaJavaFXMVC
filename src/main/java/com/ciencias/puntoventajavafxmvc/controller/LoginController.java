@@ -1,7 +1,9 @@
 package com.ciencias.puntoventajavafxmvc.controller;
 
+import com.ciencias.puntoventajavafxmvc.DAO.LoginDAO;
 import com.ciencias.puntoventajavafxmvc.DAO.MessageHandling;
 import com.ciencias.puntoventajavafxmvc.DAO.UserDAO;
+import com.ciencias.puntoventajavafxmvc.DTO.User;
 import com.ciencias.puntoventajavafxmvc.MainApp;
 import com.ciencias.puntoventajavafxmvc.validation.ValidationKeyPressed;
 import com.ciencias.puntoventajavafxmvc.validation.ValidationRegister;
@@ -74,11 +76,14 @@ public class LoginController implements Initializable {
 
 
     private UserDAO userDAO = new UserDAO();
+    private LoginDAO loginDAO = new LoginDAO();
+    User userLoginCheckBoxActive = new User();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         imageSee.setVisible(false);
         txtPassView.setVisible(false);
+        checkboxValidation();
     }
 
     @FXML
@@ -161,6 +166,7 @@ public class LoginController implements Initializable {
                     String passHash = userDAO.recuperationPass(txtUser.getText());
                     if(argon2.verify(passHash, txtPasswordSelect())){
                         System.out.println("Bienvenido");
+                        verifyCheckBoxSave();
                     } else {
                         MessageHandling.messagesError(msjError,"Error","Sign In failed\n","Password Incorrect\n");
                     }
@@ -202,5 +208,26 @@ public class LoginController implements Initializable {
 
         Stage stageLogin = (Stage) txtUser.getScene().getWindow();
         stageLogin.close();
+    }
+
+    private void checkboxValidation() {
+        userLoginCheckBoxActive = loginDAO.getUserLogin();
+        if(userLoginCheckBoxActive.getActive() == 1){
+            txtUser.setText(userLoginCheckBoxActive.getEmail());
+            txtPass.setText(userLoginCheckBoxActive.getPassword());
+            ckbRemember.setSelected(true);
+        }
+    }
+
+    private void verifyCheckBoxSave() {
+        userLoginCheckBoxActive.setEmail(txtUser.getText());
+        userLoginCheckBoxActive.setPassword(txtPasswordSelect());
+        userLoginCheckBoxActive.setId_user(userDAO.recuperationIdUser(txtUser.getText()));
+        if(ckbRemember.isSelected()){
+            userLoginCheckBoxActive.setActive(1);
+        } else{
+            userLoginCheckBoxActive.setActive(0);
+        }
+        loginDAO.saveUserLogin(userLoginCheckBoxActive);
     }
 }

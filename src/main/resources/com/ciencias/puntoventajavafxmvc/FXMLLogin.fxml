@@ -131,7 +131,7 @@
                      </ImageView>
                   </Pane>
                </HBox>
-               <Button fx:id="btnLogin" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionEvents" prefHeight="45.0" prefWidth="272.0" styleClass="buttonSignin" text="Log In">
+               <Button fx:id="btnLogin" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionEvents" prefHeight="45.0" prefWidth="272.0" styleClass="buttonSignin" text="Login">
                   <VBox.margin>
                      <Insets top="30.0" />
                   </VBox.margin>

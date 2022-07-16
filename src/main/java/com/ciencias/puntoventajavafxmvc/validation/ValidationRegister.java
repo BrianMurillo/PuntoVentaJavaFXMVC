@@ -1,10 +1,9 @@
 package com.ciencias.puntoventajavafxmvc.validation;
 
 import com.ciencias.puntoventajavafxmvc.DAO.MessageHandling;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+
+import java.time.LocalDate;
 
 public class ValidationRegister {
 
@@ -84,6 +83,16 @@ public class ValidationRegister {
 
     public static boolean validationBirthday(ComboBox cbxDay, ComboBox cbxMonth, ComboBox cbxYear) {
         if(cbxDay.getSelectionModel().getSelectedItem() != null && cbxMonth.getSelectionModel().getSelectedItem() != null && cbxYear.getSelectionModel().getSelectedItem() != null){
+            return true;
+        } else {
+            MessageHandling.messagesInformation(msjInformation,"Information",null,"Select your birthday");
+            return false;
+        }
+    }
+
+    public static boolean validationDatePicker(DatePicker datePickerBirthday) {
+        LocalDate myDate = datePickerBirthday.getValue();
+        if(myDate != null){
             return true;
         } else {
             MessageHandling.messagesInformation(msjInformation,"Information",null,"Select your birthday");

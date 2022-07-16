@@ -17,7 +17,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
-<?import javafx.scene.shape.CubicCurve?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="715.0" prefWidth="1024.0" style="-fx-background-radius: 30;" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ciencias.puntoventajavafxmvc.controller.RegisterController">
@@ -300,15 +299,6 @@
          </VBox>
       </Pane>
       <Pane prefHeight="660.0" prefWidth="977.0" style="-fx-background-radius: 0 30 30 0;" styleClass="backgroundWhite">
-         <CubicCurve controlX1="608.7987060546875" controlX2="504.744384765625" controlY1="2.7987060546875" controlY2="145.8631591796875" endX="400.7984619140625" endY="-5.0" fill="DODGERBLUE" layoutX="153.0" layoutY="5.0" startX="-198.2012939453125" startY="-5.0" stroke="BLACK" styleClass="styleForms">
-            <effect>
-               <DropShadow height="134.83" radius="37.602500000000006" spread="0.65" width="17.58">
-                  <color>
-                     <Color red="0.8509804010391235" green="0.8509804010391235" blue="0.8509804010391235" />
-                  </color>
-               </DropShadow>
-            </effect>
-         </CubicCurve>
          <ImageView fx:id="imgClose" fitHeight="23.0" fitWidth="23.0" layoutX="551.0" layoutY="14.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">
             <Image url="@img/cerrar.png" />
          </ImageView>
@@ -320,15 +310,6 @@
             <image>
                <Image url="@img/registerFont.png" />
             </image></ImageView>
-         <CubicCurve controlX1="448.794921875" controlX2="295.0" controlY1="114.793701171875" controlY2="-26.206787109375" endX="242.908203125" endY="123.0" fill="DODGERBLUE" layoutX="331.0" layoutY="593.0" startX="-366.205078125" startY="122.0" stroke="BLACK" styleClass="styleForms">
-            <effect>
-               <DropShadow height="174.77" radius="43.1925" spread="0.62" width="0.0">
-                  <color>
-                     <Color red="0.8509804010391235" green="0.8509804010391235" blue="0.8509804010391235" />
-                  </color>
-               </DropShadow>
-            </effect>
-         </CubicCurve>
          <Label layoutX="357.0" layoutY="701.0" styleClass="textFontStyle" text="CIENCIAS de la Informática UPIICSA ©" />
       </Pane>
    </HBox>

@@ -28,7 +28,7 @@
             </effect>
             <Image url="@img/fondo.png" />
          </ImageView>
-         <Label layoutX="32.0" layoutY="605.0" text="CIENCIAS de la Informática UPIICSA ©" />
+         <Label layoutX="18.0" layoutY="605.0" text="CIENCIAS de la Informática UPIICSA ©" />
       </Pane>
       <Pane prefHeight="560.0" prefWidth="401.0" style="-fx-background-radius: 0 30 30 0;" styleClass="backgroundLoginWhite" HBox.hgrow="ALWAYS">
          <VBox alignment="CENTER" layoutX="18.0" layoutY="38.0" prefHeight="545.0" prefWidth="356.0" styleClass="backgroundLogin">

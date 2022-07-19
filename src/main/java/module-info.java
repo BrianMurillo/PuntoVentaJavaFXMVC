@@ -3,6 +3,7 @@ module com.ciencias.puntoventajavafxmvc {
     requires javafx.fxml;
     requires java.sql;
     requires de.mkammerer.argon2;
+    requires com.jfoenix;
 
 
     opens com.ciencias.puntoventajavafxmvc to javafx.fxml;

@@ -19,9 +19,9 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="620.0" prefWidth="1024.0" style="-fx-background-radius: 30;" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ciencias.puntoventajavafxmvc.controller.LoginController">
+<AnchorPane prefHeight="620.0" prefWidth="1024.0" styleClass="backgroundRadius" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ciencias.puntoventajavafxmvc.controller.LoginController">
    <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-      <Pane prefHeight="560.0" prefWidth="644.0" style="-fx-background-radius: 30 0 0 30;" styleClass="backgroundLoginWhite" HBox.hgrow="ALWAYS">
+      <Pane prefHeight="560.0" prefWidth="644.0" HBox.hgrow="ALWAYS">
          <ImageView fitHeight="378.0" fitWidth="587.0" layoutX="45.0" pickOnBounds="true" preserveRatio="true">
             <effect>
                <Reflection bottomOpacity="0.06" fraction="0.6" topOpacity="0.37" />
@@ -29,8 +29,12 @@
             <Image url="@img/fondo.png" />
          </ImageView>
          <Label layoutX="18.0" layoutY="605.0" text="CIENCIAS de la Informática UPIICSA ©" />
+         <styleClass>
+            <String fx:value="backgroundLoginWhite" />
+            <String fx:value="backgroundRadiusLeft" />
+         </styleClass>
       </Pane>
-      <Pane prefHeight="560.0" prefWidth="401.0" style="-fx-background-radius: 0 30 30 0;" styleClass="backgroundLoginWhite" HBox.hgrow="ALWAYS">
+      <Pane prefHeight="560.0" prefWidth="401.0" HBox.hgrow="ALWAYS">
          <VBox alignment="CENTER" layoutX="18.0" layoutY="38.0" prefHeight="545.0" prefWidth="356.0" styleClass="backgroundLogin">
             <effect>
                <DropShadow height="14.35" offsetX="2.0" offsetY="1.0" radius="6.75" width="14.65">
@@ -169,6 +173,10 @@
          <ImageView fx:id="imageMinimize" fitHeight="23.0" fitWidth="23.0" layoutX="313.0" layoutY="5.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">
             <Image url="@img/minimizar.png" />
          </ImageView>
+         <styleClass>
+            <String fx:value="backgroundLoginWhite" />
+            <String fx:value="backgroundRadiusRigth" />
+         </styleClass>
       </Pane>
    </HBox>
 </AnchorPane>

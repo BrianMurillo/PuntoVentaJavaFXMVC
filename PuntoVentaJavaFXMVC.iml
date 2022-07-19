@@ -27,5 +27,6 @@
     <orderEntry type="library" name="Maven: de.mkammerer:argon2-jvm:2.5" level="project" />
     <orderEntry type="library" name="Maven: net.java.dev.jna:jna:4.5.2" level="project" />
     <orderEntry type="library" name="Maven: com.microsoft.sqlserver:mssql-jdbc:9.2.0.jre15" level="project" />
+    <orderEntry type="library" name="Maven: com.jfoenix:jfoenix:9.0.10" level="project" />
   </component>
 </module>

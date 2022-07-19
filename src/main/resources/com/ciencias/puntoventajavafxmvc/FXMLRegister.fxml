@@ -19,9 +19,9 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="715.0" prefWidth="1024.0" style="-fx-background-radius: 30;" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ciencias.puntoventajavafxmvc.controller.RegisterController">
+<AnchorPane prefHeight="715.0" prefWidth="1024.0" styleClass="backgroundRadius" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ciencias.puntoventajavafxmvc.controller.RegisterController">
    <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-      <Pane prefHeight="571.0" prefWidth="780.0" style="-fx-background-radius: 30 0 0 30;" styleClass="backgroundWhite" HBox.hgrow="ALWAYS">
+      <Pane prefHeight="571.0" prefWidth="780.0" HBox.hgrow="ALWAYS">
          <VBox alignment="CENTER" layoutX="44.0" layoutY="14.0" prefHeight="688.0" prefWidth="356.0" styleClass="backgroundLogin">
             <effect>
                <DropShadow height="14.5" offsetX="-3.0" offsetY="2.0" radius="6.7875" width="14.65">
@@ -297,8 +297,12 @@
                </Button>
             </VBox>
          </VBox>
+         <styleClass>
+            <String fx:value="backgroundWhite" />
+            <String fx:value="backgroundRadiusLeft" />
+         </styleClass>
       </Pane>
-      <Pane prefHeight="660.0" prefWidth="977.0" style="-fx-background-radius: 0 30 30 0;" styleClass="backgroundWhite">
+      <Pane prefHeight="660.0" prefWidth="977.0">
          <ImageView fx:id="imgClose" fitHeight="23.0" fitWidth="23.0" layoutX="551.0" layoutY="14.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="styleCursorHand">
             <Image url="@img/cerrar.png" />
          </ImageView>
@@ -311,6 +315,10 @@
                <Image url="@img/registerFont.png" />
             </image></ImageView>
          <Label layoutX="370.0" layoutY="701.0" styleClass="textFontStyle" text="CIENCIAS de la Informática UPIICSA ©" />
+         <styleClass>
+            <String fx:value="backgroundWhite" />
+            <String fx:value="backgroundRadiusRigth" />
+         </styleClass>
       </Pane>
    </HBox>
 </AnchorPane>

@@ -165,8 +165,8 @@ public class LoginController implements Initializable {
                 if(!"".equals(userDAO.recuperationPass(txtUser.getText()))){
                     String passHash = userDAO.recuperationPass(txtUser.getText());
                     if(argon2.verify(passHash, txtPasswordSelect())){
-                        System.out.println("Bienvenido");
                         verifyCheckBoxSave();
+                        viewMain("FXMLMain.fxml");
                     } else {
                         MessageHandling.messagesError(msjError,"Error","Sign In failed\n","Password Incorrect\n");
                     }
@@ -192,6 +192,25 @@ public class LoginController implements Initializable {
     }
 
     public void viewScene(String view){
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource(view));
+        Scene scene = null;
+        try {
+            scene = new Scene(fxmlLoader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println(e.toString());
+        }
+        stage.initStyle(StageStyle.TRANSPARENT);
+        scene.setFill(Color.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
+
+        Stage stageLogin = (Stage) txtUser.getScene().getWindow();
+        stageLogin.close();
+    }
+
+    public void viewMain(String view){
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource(view));
         Scene scene = null;

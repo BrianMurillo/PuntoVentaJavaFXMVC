@@ -13,8 +13,8 @@ public class User {
     private char gender;
     private String birthday;
     private int active;
-
     private int id_rol;
+    private String rol;
 
     public int getId_user() {
         return id_user;
@@ -113,5 +113,13 @@ public class User {
 
     public void setId_rol(int id_rol) {
         this.id_rol = id_rol;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 }

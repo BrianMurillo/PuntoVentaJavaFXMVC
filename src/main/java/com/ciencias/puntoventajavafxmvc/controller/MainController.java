@@ -1,24 +1,31 @@
 package com.ciencias.puntoventajavafxmvc.controller;
 
 import com.ciencias.puntoventajavafxmvc.DAO.MessageHandling;
+import com.ciencias.puntoventajavafxmvc.DAO.UserDAO;
+import com.ciencias.puntoventajavafxmvc.DTO.User;
 import com.ciencias.puntoventajavafxmvc.MainApp;
 import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -30,67 +37,74 @@ public class MainController implements Initializable {
     //Tabs
     @FXML
     private Tab tabDashboard;
-
     @FXML
     private Tab tabUsers;
 
     //navbar
     @FXML
     private JFXButton btnDashboard;
-
     @FXML
     private JFXButton btnUsers;
 
     //Users controls
     @FXML
     private TextField txtidUser;
-
     @FXML
     private TextField txtNameUser;
-
     @FXML
     private TextField txtPSurnameUser;
-
     @FXML
     private TextField txtMSurnameUser;
-
     @FXML
     private TextField txtEmailUser;
-
     @FXML
     private TextField txtUserNameUser;
-
     @FXML
     private TextField txtPhoneUser;
-
     @FXML
     private TextField txtSearchUser;
-
     @FXML
     private DatePicker datePickerBirthdayUser;
-
     @FXML
     private ComboBox cbxRolUser;
-
     @FXML
     private JFXButton btnUpdateUser;
-
     @FXML
     private JFXButton btnCleanUser;
+    @FXML
+    private TableView<User> tableUsers;
+    @FXML
+    private TableColumn<User, Integer> columnIdUser;
+    @FXML
+    private TableColumn<User, String> columnNameUser;
+    @FXML
+    private TableColumn<User, String> columnPSurnameUser;
+    @FXML
+    private TableColumn<User, String> columnMSurnameUser;
+    @FXML
+    private TableColumn<User, String> columnEmailUser;
+    @FXML
+    private TableColumn<User, String> columnUsernameUser;
+    @FXML
+    private TableColumn<User, String> columnPhoneUser;
+    @FXML
+    private TableColumn<User, String> columnBirthdayUser;
+    @FXML
+    private TableColumn<User, String> columnRolUser;
+    @FXML
+    private TableColumn<User, String> columnActionsUser;
+    List<User> listUsers;
+    ObservableList<User> listUsersData;
 
     //controls generals
     @FXML
     private ImageView imageMinimize;
-
     @FXML
     private ImageView imageMaximize;
-
     @FXML
     private ImageView imageClose;
-
     @FXML
     private AnchorPane anchorDashboard=null;
-
     @FXML
     private Label lblClock;
 
@@ -101,10 +115,17 @@ public class MainController implements Initializable {
 
     int contMaximize=2;
 
+    //DAOs
+    private UserDAO userDAO;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dashboardContainer();
         clockRun();
+        //DAOs initialized
+        this.userDAO = new UserDAO();
+        //Charge data table
+        loadDataUsers();
     }
 
     @FXML
@@ -142,6 +163,7 @@ public class MainController implements Initializable {
 
         if(event.getSource() == btnUsers){
             tpContainer.getSelectionModel().select(tabUsers);
+            loadDataUsers();
         }
     }
 
@@ -181,5 +203,25 @@ public class MainController implements Initializable {
         Thread newClock = new Thread(clock); //Creating new thread
         newClock.setDaemon(true); //Thread will automatically close on applications closing
         newClock.start(); //Starting Thread
+    }
+
+    private void loadDataUsers(){
+        tableUsers.getItems().clear();
+        tableUsers.getColumns().clear();
+
+        listUsers = userDAO.findAllUser();
+        listUsersData = FXCollections.observableArrayList(listUsers);
+
+        columnIdUser.setCellValueFactory(new PropertyValueFactory<>("id_user"));
+        columnNameUser.setCellValueFactory(new PropertyValueFactory<>("name"));
+        columnPSurnameUser.setCellValueFactory(new PropertyValueFactory<>("paternalSurname"));
+        columnMSurnameUser.setCellValueFactory(new PropertyValueFactory<>("maternalSurname"));
+        columnEmailUser.setCellValueFactory(new PropertyValueFactory<>("email"));
+        columnUsernameUser.setCellValueFactory(new PropertyValueFactory<>("username"));
+        columnPhoneUser.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        columnBirthdayUser.setCellValueFactory(new PropertyValueFactory<>("birthday"));
+        columnRolUser.setCellValueFactory(new PropertyValueFactory<>("rol"));
+        tableUsers.setItems(listUsersData);
+        tableUsers.getColumns().addAll(columnIdUser,columnNameUser,columnPSurnameUser,columnMSurnameUser,columnEmailUser,columnUsernameUser,columnPhoneUser,columnBirthdayUser,columnRolUser);
     }
 }

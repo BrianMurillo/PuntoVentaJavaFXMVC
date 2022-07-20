@@ -188,8 +188,18 @@ public class UserDAO {
                 user.setEmail(rs.getString("email"));
                 user.setUsername(rs.getString("username"));
                 user.setPhone(rs.getString("phone"));
-                user.setBirthday(rs.getString("birthday"));
-                user.setId_rol(rs.getInt("id_rol"));
+                switch (rs.getInt("id_rol")){
+                    case 1:
+                        user.setRol(Rol.ADMIN.name());
+                        user.setId_rol(1);
+                        break;
+                    case 2:
+                        user.setRol(Rol.ROOT.name());
+                        user.setId_rol(2);
+                        break;
+                    default:
+                        break;
+                }
                 listUsers.add(user);
             }
         } catch (SQLException | NullPointerException ex) {

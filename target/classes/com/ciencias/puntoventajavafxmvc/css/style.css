@@ -3,8 +3,22 @@
     -fx-background-radius: 15px;
 }
 
+.backgroundLoginNotRadius{
+    -fx-background-color: #D9D9D9;
+}
+
+.backgroundLoginRadius{
+    -fx-background-color: #D9D9D9;
+    -fx-background-radius: 15px 15px 0px 0px;
+}
+
 .backgroundLoginWhite{
     -fx-background-color: #F2F2F2;
+}
+
+.backgroundPaneWhiteRadius{
+    -fx-background-color: #F2F2F2;
+    -fx-background-radius: 15px;
 }
 
 .backgroundWhite{
@@ -30,6 +44,30 @@
     -fx-background-color: #F2F2F2;
     -fx-text-fill: black;
     -fx-border-width: 1px;
+}
+
+.buttonUpdate{
+    -fx-background-color: #7EFF76;
+    -fx-background-radius: 10px;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-family: "Yu Gothic UI";
+}
+
+.buttonDelete{
+    -fx-background-color: #FF504A;
+    -fx-background-radius: 10px;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-family: "Yu Gothic UI";
+}
+
+.buttonClean{
+    -fx-background-color: #FCE453;
+    -fx-background-radius: 10px;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-family: "Yu Gothic UI";
 }
 
 .textFontStyle{
@@ -176,4 +214,30 @@
 
 .backgroundRadiusRigth{
     -fx-background-radius:  0px 30px 30px 0px;
+}
+
+.txtSearch{
+    -fx-background-color: #F2F2F2;
+    -fx-background-radius: 10px;
+    -fx-font-size: 15px;
+    -fx-border-color: black;
+    -fx-border-width: .5px;
+    -fx-border-radius: 10px;
+}
+
+.txtSearch:hover{
+    -fx-border-width: 1px;
+}
+
+.lblClock{
+    -fx-font-size: 25px;
+    -fx-border-color: white;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-font-family: "Yu Gothic UI";
+}
+
+.lbllogo{
+    -fx-font-size: 22px;
+    -fx-font-family: "Yu Gothic UI";
 }

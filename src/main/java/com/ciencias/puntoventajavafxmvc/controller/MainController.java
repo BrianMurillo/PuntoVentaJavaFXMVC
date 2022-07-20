@@ -103,25 +103,8 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Node[] nodes = new Node[1];
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("FXMLDashboard.fxml"));
-            nodes[0] = fxmlLoader.load();
-            anchorDashboard.getChildren().add(nodes[0]);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        Runnable clock = new Runnable() {
-            @Override
-            public void run() {
-                runClock();
-            }
-        };
-
-        Thread newClock = new Thread(clock); //Creating new thread
-        newClock.setDaemon(true); //Thread will automatically close on applications closing
-        newClock.start(); //Starting Thread
+        dashboardContainer();
+        clockRun();
     }
 
     @FXML
@@ -154,6 +137,7 @@ public class MainController implements Initializable {
     public void onActionEvents(ActionEvent event){
         if(event.getSource() == btnDashboard){
             tpContainer.getSelectionModel().select(tabDashboard);
+            dashboardContainer();
         }
 
         if(event.getSource() == btnUsers){
@@ -179,5 +163,23 @@ public class MainController implements Initializable {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void dashboardContainer(){
+        Node[] nodes = new Node[1];
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("FXMLDashboard.fxml"));
+            nodes[0] = fxmlLoader.load();
+            anchorDashboard.getChildren().add(nodes[0]);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void clockRun(){
+        Runnable clock = this::runClock;
+        Thread newClock = new Thread(clock); //Creating new thread
+        newClock.setDaemon(true); //Thread will automatically close on applications closing
+        newClock.start(); //Starting Thread
     }
 }

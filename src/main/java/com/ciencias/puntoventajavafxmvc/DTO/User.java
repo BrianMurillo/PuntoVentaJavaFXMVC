@@ -14,6 +14,8 @@ public class User {
     private String birthday;
     private int active;
 
+    private int id_rol;
+
     public int getId_user() {
         return id_user;
     }
@@ -103,5 +105,13 @@ public class User {
 
     public void setBirthday(String birthday) {
         this.birthday = birthday;
+    }
+
+    public int getId_rol() {
+        return id_rol;
+    }
+
+    public void setId_rol(int id_rol) {
+        this.id_rol = id_rol;
     }
 }

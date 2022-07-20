@@ -302,6 +302,8 @@ public class RegisterController implements Initializable {
         user.setPhone(txtPhone.getText());
         user.setGender(selectionGender());
         user.setBirthday(selectionBirthday());
+        //root for default
+        user.setId_rol(2);
         return user;
     }
 

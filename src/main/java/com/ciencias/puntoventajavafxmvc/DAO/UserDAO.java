@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAO {
     private Connection con;
@@ -14,7 +16,7 @@ public class UserDAO {
     private ResultSet rs;
 
     public boolean saveUser(User user){
-        String sql="INSERT INTO users(name,paternal_surname,maternal_surname,email,username,password,phone,gender,birthday) VALUES (?,?,?,?,?,?,?,?,?)";
+        String sql="INSERT INTO users(name,paternal_surname,maternal_surname,email,username,password,phone,gender,birthday,id_rol) VALUES (?,?,?,?,?,?,?,?,?,?)";
         try {
             con = ConexionBD.connection();
             ps = con.prepareStatement(sql);
@@ -27,6 +29,7 @@ public class UserDAO {
             ps.setString(7,user.getPhone());
             ps.setString(8, String.valueOf(user.getGender()));
             ps.setString(9,user.getBirthday());
+            ps.setInt(10, user.getId_rol());
             ps.execute();
         } catch (SQLException e){
             System.out.println(e.toString());
@@ -167,6 +170,40 @@ public class UserDAO {
             }
         }
         return false;
+    }
+
+    public List<User> findAllUser(){
+        String sql = "Select id_user,name,paternal_surname,maternal_surname,email,username,phone,birthday,id_rol from users";
+        ArrayList<User> listUsers = new ArrayList<>();
+        try{
+            con = ConexionBD.connection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                User user = new User();
+                user.setId_user(rs.getInt("id_user"));
+                user.setName(rs.getString("name"));
+                user.setPaternalSurname(rs.getString("paternal_surname"));
+                user.setMaternalSurname(rs.getString("maternal_surname"));
+                user.setEmail(rs.getString("email"));
+                user.setUsername(rs.getString("username"));
+                user.setPhone(rs.getString("phone"));
+                user.setBirthday(rs.getString("birthday"));
+                user.setId_rol(rs.getInt("id_rol"));
+                listUsers.add(user);
+            }
+        } catch (SQLException | NullPointerException ex) {
+            System.out.println(ex.toString());
+        } finally {
+            try{
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException | NullPointerException ex){
+                System.out.println(ex.toString());
+            }
+        }
+        return listUsers;
     }
 
 }

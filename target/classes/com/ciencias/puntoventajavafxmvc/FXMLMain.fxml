@@ -10,6 +10,8 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -179,9 +181,8 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ScrollPane layoutX="396.0" layoutY="72.0" prefHeight="539.0" prefWidth="689.0" styleClass="backgroundLoginWhite" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="396.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="77.0" />
-                        <TextField fx:id="txtSearchUser" layoutX="704.0" layoutY="27.0" prefHeight="20.0" prefWidth="186.0" styleClass="txtSearch" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="15.0" />
-                        <ImageView fitHeight="27.0" fitWidth="29.0" layoutX="992.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="66.0">
+                        <TextField fx:id="txtSearchUser" layoutX="704.0" layoutY="27.0" prefHeight="20.0" prefWidth="186.0" styleClass="txtSearch" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="29.0" />
+                        <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="1025.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="18.0">
                            <image>
                               <Image url="@img/search.png" />
                            </image>
@@ -355,6 +356,20 @@
                               <Image url="@img/users.png" />
                            </image>
                         </ImageView>
+                        <TableView fx:id="tableUsers" layoutX="396.0" layoutY="84.0" prefHeight="518.0" prefWidth="675.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="390.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="79.0">
+                          <columns>
+                            <TableColumn fx:id="columnIdUser" minWidth="17.0" prefWidth="25.0" text="Id" />
+                            <TableColumn fx:id="columnNameUser" prefWidth="75.0" text="Name" />
+                              <TableColumn fx:id="columnPSurnameUser" prefWidth="109.0" text="Paternal Surname" />
+                              <TableColumn fx:id="columnMSurnameUser" prefWidth="117.0" text="Maternal Surname" />
+                              <TableColumn fx:id="columnEmailUser" prefWidth="123.0" text="Email" />
+                              <TableColumn fx:id="columnUsernameUser" prefWidth="77.0" text="Username" />
+                              <TableColumn fx:id="columnPhoneUser" prefWidth="78.0" text="Phone" />
+                              <TableColumn fx:id="columnBirthdayUser" prefWidth="73.0" text="Birthday" />
+                              <TableColumn fx:id="columnRolUser" prefWidth="65.0" text="Rol" />
+                              <TableColumn fx:id="columnActionsUser" prefWidth="105.0" text="Actions" />
+                          </columns>
+                        </TableView>
                      </children></AnchorPane>
             </content>
           </Tab>

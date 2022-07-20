@@ -65,7 +65,7 @@
 .buttonClean{
     -fx-background-color: #FCE453;
     -fx-background-radius: 10px;
-    -fx-text-fill: white;
+    -fx-text-fill: black;
     -fx-font-size: 20px;
     -fx-font-family: "Yu Gothic UI";
 }

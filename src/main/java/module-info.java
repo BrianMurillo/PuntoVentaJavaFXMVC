@@ -4,7 +4,8 @@ module com.ciencias.puntoventajavafxmvc {
     requires java.sql;
     requires de.mkammerer.argon2;
     requires com.jfoenix;
-
+    requires de.jensd.fx.glyphs.fontawesome;
+    requires de.jensd.fx.glyphs.commons;
 
     opens com.ciencias.puntoventajavafxmvc to javafx.fxml;
     exports com.ciencias.puntoventajavafxmvc;

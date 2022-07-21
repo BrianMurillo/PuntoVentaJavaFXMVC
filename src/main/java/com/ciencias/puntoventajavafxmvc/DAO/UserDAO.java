@@ -188,6 +188,7 @@ public class UserDAO {
                 user.setEmail(rs.getString("email"));
                 user.setUsername(rs.getString("username"));
                 user.setPhone(rs.getString("phone"));
+                user.setBirthday(rs.getString("birthday"));
                 switch (rs.getInt("id_rol")){
                     case 1:
                         user.setRol(Rol.ADMIN.name());

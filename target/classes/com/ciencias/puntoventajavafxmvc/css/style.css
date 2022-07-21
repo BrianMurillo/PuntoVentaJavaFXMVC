@@ -197,11 +197,15 @@
     -fx-font-size: 15px;
 }
 
+.textDashboardData{
+    -fx-font-size: 25px;
+}
+
 .btnGeneratedReport{
     -fx-background-color: #87A7FF;
     -fx-background-radius: 10px;
     -fx-font-size: 15px;
-    -fx-text-fill: white;
+    -fx-text-fill: #F2F2F2;
 }
 
 .backgroundRadius{
@@ -231,7 +235,7 @@
 
 .lblClock{
     -fx-font-size: 25px;
-    -fx-border-color: white;
+    -fx-border-color: #F2F2F2;
     -fx-border-width: 1px;
     -fx-border-radius: 5px;
     -fx-font-family: "Yu Gothic UI";
@@ -240,4 +244,38 @@
 .lbllogo{
     -fx-font-size: 22px;
     -fx-font-family: "Yu Gothic UI";
+}
+
+.table-view{
+    -fx-background-color: #D9D9D9;
+    -fx-font-size: 15px;
+    -fx-font-family: "Yu Gothic UI";
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #87A7FF;
+    -fx-background-radius: 30px;
+    -fx-background-insets: 0 0 10 0;
+    -fx-padding: 0 0 10 0;
+}
+
+.table-view .column-header, .table-view .filter{
+    -fx-size: 40;
+    -fx-border-width: 0 0 10 0;
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header .label{
+    -fx-text-fill: #F2F2F2;
+    -fx-font-size: 15px;
+    -fx-spacing: 30px;
+    -fx-font-family: "Yu Gothic UI";
+}
+
+.aligmentTextTable{
+    -fx-alignment: center;
+}
+
+.rotateButton:pressed{
+    -fx-rotate: 15;
 }

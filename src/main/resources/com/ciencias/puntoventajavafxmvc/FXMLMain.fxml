@@ -181,11 +181,15 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="txtSearchUser" layoutX="704.0" layoutY="27.0" prefHeight="20.0" prefWidth="186.0" styleClass="txtSearch" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="29.0" />
-                        <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="1025.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="18.0">
+                        <TextField fx:id="txtSearchUser" layoutX="704.0" layoutY="27.0" prefHeight="20.0" prefWidth="186.0" promptText="Search" styleClass="txtSearch" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="29.0" />
+                        <ImageView fx:id="imageSearchUser" fitHeight="38.0" fitWidth="34.0" layoutX="1025.0" layoutY="29.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="18.0">
                            <image>
                               <Image url="@img/search.png" />
                            </image>
+                           <styleClass>
+                              <String fx:value="styleCursorHand" />
+                              <String fx:value="rotateButton" />
+                           </styleClass>
                         </ImageView>
                         <Pane layoutX="31.0" layoutY="9.0" prefHeight="597.0" prefWidth="334.0" styleClass="backgroundPaneWhiteRadius">
                            <children>
@@ -198,7 +202,7 @@
                                     </Pane>
                                     <Pane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <TextField fx:id="txtidUser" prefHeight="20.0" prefWidth="305.0" promptText="Id user">
+                                          <TextField fx:id="txtidUser" editable="false" prefHeight="20.0" prefWidth="305.0" promptText="Id user">
                                              <styleClass>
                                                 <String fx:value="styletextFieldRight" />
                                                 <String fx:value="textDashboard" />
@@ -311,7 +315,7 @@
                                     <Pane prefHeight="200.0" prefWidth="200.0">
                                        <children>
                                           <Separator layoutY="26.0" prefHeight="4.0" prefWidth="305.0" />
-                                          <DatePicker fx:id="datePickerBirthdayUser" editable="false" layoutX="-1.0" layoutY="2.0" prefHeight="25.0" prefWidth="305.0" styleClass="textDashboard" />
+                                          <DatePicker fx:id="datePickerBirthdayUser" editable="false" layoutX="-1.0" layoutY="2.0" prefHeight="25.0" prefWidth="305.0" promptText="YYYY-MM-DD" styleClass="textDashboard" />
                                        </children>
                                     </Pane>
                                     <Pane prefHeight="200.0" prefWidth="200.0">
@@ -321,7 +325,7 @@
                                     </Pane>
                                     <Pane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <ComboBox fx:id="cbxRolUser" layoutY="2.0" prefHeight="25.0" prefWidth="304.0">
+                                          <ComboBox fx:id="cbxRolUser" layoutY="2.0" prefHeight="25.0" prefWidth="304.0" promptText="Rol">
                                              <styleClass>
                                                 <String fx:value="backgroundRadiusRigth" />
                                                 <String fx:value="textDashboard" />
@@ -331,13 +335,13 @@
                                     </Pane>
                                  </children>
                               </VBox>
-                              <JFXButton fx:id="btnUpdateUser" layoutX="52.0" layoutY="550.0" text="Update">
+                              <JFXButton fx:id="btnUpdateUser" layoutX="52.0" layoutY="550.0" onAction="#onActionEvents" text="Update">
                                  <styleClass>
                                     <String fx:value="buttonUpdate" />
                                     <String fx:value="styleCursorHand" />
                                  </styleClass>
                               </JFXButton>
-                              <JFXButton fx:id="btnCleanUser" layoutX="191.0" layoutY="550.0" prefHeight="39.0" prefWidth="92.0" text="Clean">
+                              <JFXButton fx:id="btnCleanUser" layoutX="191.0" layoutY="550.0" onAction="#onActionEvents" prefHeight="39.0" prefWidth="92.0" text="Clean">
                                  <styleClass>
                                     <String fx:value="buttonClean" />
                                     <String fx:value="styleCursorHand" />
@@ -345,30 +349,33 @@
                               </JFXButton>
                            </children>
                         </Pane>
-                        <ImageView fitHeight="73.0" fitWidth="67.0" layoutX="396.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="73.0" fitWidth="67.0" layoutX="495.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@img/users.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="485.0" layoutY="14.0" prefHeight="48.0" prefWidth="73.0" styleClass="textTitleMain" text="Users" />
-                        <ImageView fitHeight="73.0" fitWidth="67.0" layoutX="579.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                        <Label layoutX="584.0" layoutY="19.0" prefHeight="48.0" prefWidth="73.0" styleClass="textTitleMain" text="Users" />
+                        <ImageView fitHeight="73.0" fitWidth="67.0" layoutX="678.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@img/users.png" />
                            </image>
                         </ImageView>
-                        <TableView fx:id="tableUsers" layoutX="396.0" layoutY="84.0" prefHeight="518.0" prefWidth="675.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="390.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="79.0">
+                        <TableView fx:id="tableUsers" layoutX="396.0" layoutY="67.0" prefHeight="534.0" prefWidth="680.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="390.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="67.0">
                           <columns>
-                            <TableColumn fx:id="columnIdUser" minWidth="17.0" prefWidth="25.0" text="Id" />
-                            <TableColumn fx:id="columnNameUser" prefWidth="75.0" text="Name" />
-                              <TableColumn fx:id="columnPSurnameUser" prefWidth="109.0" text="Paternal Surname" />
-                              <TableColumn fx:id="columnMSurnameUser" prefWidth="117.0" text="Maternal Surname" />
-                              <TableColumn fx:id="columnEmailUser" prefWidth="123.0" text="Email" />
-                              <TableColumn fx:id="columnUsernameUser" prefWidth="77.0" text="Username" />
-                              <TableColumn fx:id="columnPhoneUser" prefWidth="78.0" text="Phone" />
-                              <TableColumn fx:id="columnBirthdayUser" prefWidth="73.0" text="Birthday" />
-                              <TableColumn fx:id="columnRolUser" prefWidth="65.0" text="Rol" />
-                              <TableColumn fx:id="columnActionsUser" prefWidth="105.0" text="Actions" />
+                            <TableColumn fx:id="columnIdUser" minWidth="17.0" prefWidth="25.0" styleClass="aligmentTextTable" text="Id" />
+                            <TableColumn fx:id="columnNameUser" prefWidth="75.0" styleClass="aligmentTextTable" text="Name" />
+                              <TableColumn fx:id="columnPSurnameUser" prefWidth="109.0" styleClass="aligmentTextTable" text="Paternal Surname" />
+                              <TableColumn fx:id="columnMSurnameUser" prefWidth="117.0" styleClass="aligmentTextTable" text="Maternal Surname" />
+                              <TableColumn fx:id="columnEmailUser" prefWidth="123.0" styleClass="aligmentTextTable" text="Email" />
+                              <TableColumn fx:id="columnUsernameUser" prefWidth="77.0" styleClass="aligmentTextTable" text="Username" />
+                              <TableColumn fx:id="columnPhoneUser" prefWidth="78.0" styleClass="aligmentTextTable" text="Phone" />
+                              <TableColumn fx:id="columnBirthdayUser" prefWidth="73.0" styleClass="aligmentTextTable" text="Birthday" />
+                              <TableColumn fx:id="columnRolUser" prefWidth="65.0" styleClass="aligmentTextTable" text="Rol" />
+                              <TableColumn fx:id="columnActionsUser" prefWidth="105.0" styleClass="aligmentTextTable" text="Actions" />
                           </columns>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
                         </TableView>
                      </children></AnchorPane>
             </content>
@@ -401,8 +408,8 @@
                                              </image>
                                           </ImageView>
                                           <Label layoutX="19.0" layoutY="33.0" styleClass="textDashboard" text="Earnings" />
-                                          <Label layoutX="27.0" layoutY="65.0" styleClass="textFieldLogin" text="22 500.00" />
-                                          <Label layoutX="14.0" layoutY="65.0" styleClass="textFieldLogin" text="\$" />
+                                          <Label layoutX="27.0" layoutY="65.0" styleClass="textDashboardData" text="22 500.00" />
+                                          <Label layoutX="14.0" layoutY="65.0" styleClass="textDashboardData" text="\$" />
                                        </children></Pane>
                                  </children>
                                  <HBox.margin>
@@ -427,7 +434,7 @@
                                        </styleClass>
                                        <children>
                                           <Label layoutX="23.0" layoutY="33.0" styleClass="textDashboard" text="Clients" />
-                                          <Label layoutX="31.0" layoutY="65.0" prefHeight="27.0" prefWidth="40.0" styleClass="textFieldLogin" text="35" />
+                                          <Label layoutX="31.0" layoutY="65.0" prefHeight="27.0" prefWidth="40.0" styleClass="textDashboardData" text="35" />
                                           <ImageView fitHeight="48.0" fitWidth="49.0" layoutX="126.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@img/clientsdash.png" />
@@ -454,7 +461,7 @@
                                        </styleClass>
                                        <children>
                                           <Label layoutX="23.0" layoutY="33.0" styleClass="textDashboard" text="Products" />
-                                          <Label layoutX="31.0" layoutY="65.0" prefHeight="27.0" prefWidth="40.0" styleClass="textFieldLogin" text="22" />
+                                          <Label layoutX="31.0" layoutY="65.0" prefHeight="27.0" prefWidth="40.0" styleClass="textDashboardData" text="22" />
                                           <ImageView fitHeight="48.0" fitWidth="49.0" layoutX="130.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@img/productsdash.png" />
@@ -481,7 +488,7 @@
                                        </styleClass>
                                        <children>
                                           <Label layoutX="24.0" layoutY="33.0" styleClass="textDashboard" text="Sales" />
-                                          <Label layoutX="32.0" layoutY="65.0" prefHeight="27.0" prefWidth="40.0" styleClass="textFieldLogin" text="20" />
+                                          <Label layoutX="32.0" layoutY="65.0" prefHeight="27.0" prefWidth="40.0" styleClass="textDashboardData" text="20" />
                                           <ImageView fitHeight="48.0" fitWidth="49.0" layoutX="133.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@img/salesdash.png" />
@@ -508,7 +515,7 @@
                                        </styleClass>
                                        <children>
                                           <Label layoutX="20.0" layoutY="33.0" styleClass="textDashboard" text="Buys" />
-                                          <Label layoutX="28.0" layoutY="65.0" prefHeight="27.0" prefWidth="40.0" styleClass="textFieldLogin" text="15" />
+                                          <Label layoutX="28.0" layoutY="65.0" prefHeight="27.0" prefWidth="40.0" styleClass="textDashboardData" text="15" />
                                           <ImageView fitHeight="48.0" fitWidth="49.0" layoutX="129.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@img/buysdash.png" />

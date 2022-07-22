@@ -5,7 +5,7 @@ import javafx.scene.control.*;
 
 import java.time.LocalDate;
 
-public class ValidationRegister {
+public class ValidationUser {
 
     private static Alert msjInformation = new Alert(Alert.AlertType.INFORMATION);
 
@@ -96,6 +96,24 @@ public class ValidationRegister {
             return true;
         } else {
             MessageHandling.messagesInformation(msjInformation,"Information",null,"Select your birthday");
+            return false;
+        }
+    }
+
+    public static boolean validationRol(ComboBox cbxRolUser) {
+        if(cbxRolUser.getSelectionModel().getSelectedItem() != null){
+            return true;
+        } else {
+            MessageHandling.messagesInformation(msjInformation,"Information",null,"Select rol");
+            return false;
+        }
+    }
+
+    public static boolean validationId(TextField txtidUser) {
+        if(!"".equals(txtidUser.getText())){
+            return true;
+        } else {
+            MessageHandling.messagesInformation(msjInformation,"Information",null,"Select a user");
             return false;
         }
     }

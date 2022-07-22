@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -25,9 +25,9 @@
 
 <AnchorPane prefHeight="740.0" prefWidth="1200.0" style="-fx-background-radius: 30;" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ciencias.puntoventajavafxmvc.controller.MainController">
    <children>
-      <VBox alignment="TOP_CENTER" layoutX="14.0" layoutY="10.0" prefHeight="720.0" prefWidth="79.0" spacing="6.0" styleClass="backgroundLogin" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="10.0">
+      <VBox alignment="TOP_CENTER" layoutX="14.0" layoutY="10.0" prefHeight="720.0" prefWidth="79.0" spacing="7.0" styleClass="backgroundLogin" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="10.0">
          <children>
-            <JFXButton fx:id="btnDashboard" alignment="BOTTOM_CENTER" contentDisplay="TOP" onAction="#onActionEvents" prefHeight="59.0" prefWidth="91.0" text="Dashboard">
+            <JFXButton fx:id="btnDashboard" alignment="BOTTOM_CENTER" contentDisplay="TOP" onAction="#onActionEvents" prefHeight="59.0" prefWidth="79.0" text="Dashboard">
                <graphic>
                   <ImageView fitHeight="34.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -38,6 +38,7 @@
                <styleClass>
                   <String fx:value="textFontStyle" />
                   <String fx:value="styleCursorHand" />
+                  <String fx:value="buttonNav" />
                </styleClass>
             </JFXButton>
             <JFXButton alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="59.0" prefWidth="82.0" text="New Sale">
@@ -51,6 +52,7 @@
                <styleClass>
                   <String fx:value="textFontStyle" />
                   <String fx:value="styleCursorHand" />
+                  <String fx:value="buttonNav" />
                </styleClass>
             </JFXButton>
             <JFXButton alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="59.0" prefWidth="89.0" text="New Buy">
@@ -64,6 +66,7 @@
                <styleClass>
                   <String fx:value="textFontStyle" />
                   <String fx:value="styleCursorHand" />
+                  <String fx:value="buttonNav" />
                </styleClass>
             </JFXButton>
             <JFXButton fx:id="btnUsers" alignment="BOTTOM_CENTER" contentDisplay="TOP" onAction="#onActionEvents" prefHeight="59.0" prefWidth="94.0" text="Users">
@@ -77,6 +80,7 @@
                <styleClass>
                   <String fx:value="textFontStyle" />
                   <String fx:value="styleCursorHand" />
+                  <String fx:value="buttonNav" />
                </styleClass>
             </JFXButton>
             <JFXButton alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="59.0" prefWidth="79.0" text="Clients">
@@ -90,6 +94,7 @@
                <styleClass>
                   <String fx:value="textFontStyle" />
                   <String fx:value="styleCursorHand" />
+                  <String fx:value="buttonNav" />
                </styleClass>
             </JFXButton>
             <JFXButton alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="59.0" prefWidth="83.0" text="Providers">
@@ -103,6 +108,7 @@
                <styleClass>
                   <String fx:value="textFontStyle" />
                   <String fx:value="styleCursorHand" />
+                  <String fx:value="buttonNav" />
                </styleClass>
             </JFXButton>
             <JFXButton alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="60.0" prefWidth="84.0" text="Products">
@@ -116,6 +122,7 @@
                <styleClass>
                   <String fx:value="textFontStyle" />
                   <String fx:value="styleCursorHand" />
+                  <String fx:value="buttonNav" />
                </styleClass>
             </JFXButton>
             <JFXButton alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="59.0" prefWidth="85.0" text="Sales">
@@ -129,6 +136,7 @@
                <styleClass>
                   <String fx:value="textFontStyle" />
                   <String fx:value="styleCursorHand" />
+                  <String fx:value="buttonNav" />
                </styleClass>
             </JFXButton>
             <JFXButton alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="60.0" prefWidth="86.0" text="Buys">
@@ -142,6 +150,7 @@
                <styleClass>
                   <String fx:value="textFontStyle" />
                   <String fx:value="styleCursorHand" />
+                  <String fx:value="buttonNav" />
                </styleClass>
             </JFXButton>
             <JFXButton alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="59.0" prefWidth="82.0" text="About">
@@ -155,6 +164,7 @@
                <styleClass>
                   <String fx:value="textFontStyle" />
                   <String fx:value="styleCursorHand" />
+                  <String fx:value="buttonNav" />
                </styleClass>
             </JFXButton>
             <JFXButton alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="59.0" prefWidth="80.0" text="Logout">
@@ -168,12 +178,10 @@
                <styleClass>
                   <String fx:value="textFontStyle" />
                   <String fx:value="styleCursorHand" />
+                  <String fx:value="buttonNav" />
                </styleClass>
             </JFXButton>
          </children>
-         <padding>
-            <Insets top="5.0" />
-         </padding>
       </VBox>
       <TabPane fx:id="tpContainer" layoutX="105.0" layoutY="85.0" prefHeight="646.0" prefWidth="1085.0" styleClass="backgroundLoginRadius" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="85.0">
         <tabs>
@@ -181,7 +189,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="txtSearchUser" layoutX="704.0" layoutY="27.0" prefHeight="20.0" prefWidth="186.0" promptText="Search" styleClass="txtSearch" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="29.0" />
+                        <TextField fx:id="txtSearchUser" layoutX="704.0" layoutY="27.0" prefHeight="20.0" prefWidth="186.0" promptText="Search" styleClass="txtSearch" AnchorPane.leftAnchor="840.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="29.0" />
                         <ImageView fx:id="imageSearchUser" fitHeight="38.0" fitWidth="34.0" layoutX="1025.0" layoutY="29.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="18.0">
                            <image>
                               <Image url="@img/search.png" />
@@ -191,7 +199,7 @@
                               <String fx:value="rotateButton" />
                            </styleClass>
                         </ImageView>
-                        <Pane layoutX="31.0" layoutY="9.0" prefHeight="597.0" prefWidth="334.0" styleClass="backgroundPaneWhiteRadius">
+                        <Pane layoutX="31.0" layoutY="9.0" prefHeight="603.0" prefWidth="334.0">
                            <children>
                               <VBox layoutX="15.0" layoutY="7.0" prefHeight="532.0" prefWidth="303.0">
                                  <children>
@@ -315,39 +323,43 @@
                                     <Pane prefHeight="200.0" prefWidth="200.0">
                                        <children>
                                           <Separator layoutY="26.0" prefHeight="4.0" prefWidth="305.0" />
-                                          <DatePicker fx:id="datePickerBirthdayUser" editable="false" layoutX="-1.0" layoutY="2.0" prefHeight="25.0" prefWidth="305.0" promptText="YYYY-MM-DD" styleClass="textDashboard" />
+                                          <DatePicker fx:id="datePickerBirthdayUser" editable="false" layoutX="-1.0" layoutY="2.0" prefHeight="25.0" prefWidth="305.0" promptText="DD/MM/YYYY" styleClass="textDashboard" />
                                        </children>
                                     </Pane>
+                                    <Pane prefHeight="200.0" prefWidth="200.0" />
                                     <Pane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <Label styleClass="textFieldLogin" text="Rol" />
-                                       </children>
-                                    </Pane>
-                                    <Pane prefHeight="200.0" prefWidth="200.0">
-                                       <children>
-                                          <ComboBox fx:id="cbxRolUser" layoutY="2.0" prefHeight="25.0" prefWidth="304.0" promptText="Rol">
-                                             <styleClass>
-                                                <String fx:value="backgroundRadiusRigth" />
-                                                <String fx:value="textDashboard" />
-                                             </styleClass>
-                                          </ComboBox>
+                                          <JFXComboBox fx:id="cbxRolUser" layoutX="148.0" layoutY="2.0" prefHeight="31.0" prefWidth="153.0" promptText="ROL" />
                                        </children>
                                     </Pane>
                                  </children>
                               </VBox>
-                              <JFXButton fx:id="btnUpdateUser" layoutX="52.0" layoutY="550.0" onAction="#onActionEvents" text="Update">
+                              <JFXButton fx:id="btnUpdateUser" layoutX="51.0" layoutY="556.0" onAction="#onActionEvents" text="Update">
                                  <styleClass>
                                     <String fx:value="buttonUpdate" />
                                     <String fx:value="styleCursorHand" />
+                                    <String fx:value="buttonBorderHover" />
                                  </styleClass>
                               </JFXButton>
-                              <JFXButton fx:id="btnCleanUser" layoutX="191.0" layoutY="550.0" onAction="#onActionEvents" prefHeight="39.0" prefWidth="92.0" text="Clean">
+                              <JFXButton fx:id="btnCleanUser" layoutX="190.0" layoutY="556.0" onAction="#onActionEvents" prefHeight="39.0" prefWidth="92.0" text="Clean">
                                  <styleClass>
                                     <String fx:value="buttonClean" />
                                     <String fx:value="styleCursorHand" />
+                                    <String fx:value="buttonBorderHover" />
                                  </styleClass>
                               </JFXButton>
                            </children>
+                           <styleClass>
+                              <String fx:value="backgroundPaneWhiteRadius" />
+                              <String fx:value="txtSearch" />
+                           </styleClass>
+                           <effect>
+                              <DropShadow offsetX="3.0" offsetY="2.0">
+                                 <color>
+                                    <Color red="0.04769736900925636" green="0.3815789520740509" blue="0.3148026168346405" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
                         </Pane>
                         <ImageView fitHeight="73.0" fitWidth="67.0" layoutX="495.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                            <image>

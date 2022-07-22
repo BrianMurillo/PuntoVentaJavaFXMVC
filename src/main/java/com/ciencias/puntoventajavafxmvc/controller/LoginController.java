@@ -6,7 +6,8 @@ import com.ciencias.puntoventajavafxmvc.DAO.UserDAO;
 import com.ciencias.puntoventajavafxmvc.DTO.User;
 import com.ciencias.puntoventajavafxmvc.MainApp;
 import com.ciencias.puntoventajavafxmvc.validation.ValidationKeyPressed;
-import com.ciencias.puntoventajavafxmvc.validation.ValidationRegister;
+import com.ciencias.puntoventajavafxmvc.validation.ValidationUser;
+import com.jfoenix.controls.JFXCheckBox;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
 import javafx.event.ActionEvent;
@@ -48,7 +49,7 @@ public class LoginController implements Initializable {
     private ImageView imageNotSee;
 
     @FXML
-    private CheckBox ckbRemember;
+    private JFXCheckBox ckbRemember;
 
     @FXML
     private Label lblForgotPassword;
@@ -161,11 +162,12 @@ public class LoginController implements Initializable {
     @FXML
     private void onActionEvents(ActionEvent event){
         if (event.getSource() == btnLogin){
-            if(validationFields()){
-                if(!"".equals(userDAO.recuperationPass(txtUser.getText()))){
-                    String passHash = userDAO.recuperationPass(txtUser.getText());
+            if(validationFieldsLogin()){
+                if(!"".equals(userDAO.recuperationPassUser(txtUser.getText()))){
+                    String passHash = userDAO.recuperationPassUser(txtUser.getText());
                     if(argon2.verify(passHash, txtPasswordSelect())){
                         verifyCheckBoxSave();
+                        MessageHandling.messagesError(msjInformation,"Information","WELCOME\n","Welcome to POS SCIENCES UPIICSA\n");
                         viewMain("FXMLMain.fxml");
                     } else {
                         MessageHandling.messagesError(msjError,"Error","Sign In failed\n","Password Incorrect\n");
@@ -185,9 +187,9 @@ public class LoginController implements Initializable {
         }
     }
 
-    private boolean validationFields() {
-        boolean vEmail = ValidationRegister.validationEmail(txtUser);
-        boolean vPassword = ValidationRegister.validationPassword(cont,txtPass,txtPassView);
+    private boolean validationFieldsLogin() {
+        boolean vEmail = ValidationUser.validationEmail(txtUser);
+        boolean vPassword = ValidationUser.validationPassword(cont,txtPass,txtPassView);
         return  vEmail && vPassword;
     }
 

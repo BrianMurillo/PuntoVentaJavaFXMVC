@@ -1,6 +1,6 @@
 package com.ciencias.puntoventajavafxmvc.DAO;
 
-import com.ciencias.puntoventajavafxmvc.DAO.conexion.ConexionBD;
+import com.ciencias.puntoventajavafxmvc.DAO.conexion.ConnectionBD;
 import com.ciencias.puntoventajavafxmvc.DTO.User;
 
 import java.sql.Connection;
@@ -18,7 +18,7 @@ public class LoginDAO {
         String sql = "SELECT TOP 1 * FROM login_users ORDER BY date_login DESC";
         User user = new User();
         try{
-            con = ConexionBD.connection();
+            con = ConnectionBD.connection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             if(rs.next()){
@@ -44,7 +44,7 @@ public class LoginDAO {
     public void saveUserLogin(User user){
         String sql="INSERT INTO login_users(email,password,active,id_user) VALUES (?,?,?,?)";
         try {
-            con = ConexionBD.connection();
+            con = ConnectionBD.connection();
             ps = con.prepareStatement(sql);
             ps.setString(1,user.getEmail());
             ps.setString(2,user.getPassword());
@@ -61,5 +61,26 @@ public class LoginDAO {
                 System.out.println(ex.toString());
             }
         }
+    }
+
+    public boolean deleteUserLogin(int id_user){
+        String sql = "Delete From login_users Where id_user=?";
+        try{
+            con = ConnectionBD.connection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id_user);
+            ps.execute();
+        } catch (SQLException | NullPointerException ex) {
+            System.out.println(ex.toString());
+            return false;
+        } finally {
+            try{
+                ps.close();
+                con.close();
+            } catch (SQLException | NullPointerException ex){
+                System.out.println(ex.toString());
+            }
+        }
+        return true;
     }
 }

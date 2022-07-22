@@ -1,17 +1,22 @@
 package com.ciencias.puntoventajavafxmvc.controller;
 
 import com.ciencias.puntoventajavafxmvc.DAO.DataCBX;
+import com.ciencias.puntoventajavafxmvc.DAO.LoginDAO;
 import com.ciencias.puntoventajavafxmvc.DAO.MessageHandling;
 import com.ciencias.puntoventajavafxmvc.DAO.UserDAO;
 import com.ciencias.puntoventajavafxmvc.DTO.User;
 import com.ciencias.puntoventajavafxmvc.MainApp;
 import com.ciencias.puntoventajavafxmvc.validation.Validation;
+import com.ciencias.puntoventajavafxmvc.validation.ValidationUser;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -76,7 +81,7 @@ public class MainController implements Initializable {
     @FXML
     private DatePicker datePickerBirthdayUser;
     @FXML
-    private ComboBox cbxRolUser;
+    private JFXComboBox cbxRolUser;
     @FXML
     private JFXButton btnUpdateUser;
     @FXML
@@ -104,7 +109,7 @@ public class MainController implements Initializable {
     @FXML
     private TableColumn<User, String> columnActionsUser;
     private List<User> listUsers;
-    private ObservableList<User> listUsersData;
+    private ObservableList<User> listUsersData = FXCollections.observableArrayList();
     private User user;
 
     //controls generals
@@ -128,6 +133,7 @@ public class MainController implements Initializable {
 
     //DAOs
     private UserDAO userDAO;
+    private LoginDAO loginDAO;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -135,8 +141,10 @@ public class MainController implements Initializable {
         clockRun();
         //DAOs initialized
         this.userDAO = new UserDAO();
+        this.loginDAO = new LoginDAO();
         //Charge data users
         loadDataTableUsers();
+        dynamicSearchUser();
         cbxRolUser.getItems().addAll(DataCBX.arrayRols());
     }
 
@@ -183,7 +191,18 @@ public class MainController implements Initializable {
         }
         //Methods user
         if(event.getSource() == btnUpdateUser){
-
+            if(!ValidationUser.validationId(txtidUser)){
+                return;
+            }
+            if(validationFieldsUser()){
+                user = recoverDataUser();
+                if(userDAO.updateUser(user)){
+                    MessageHandling.messagesInformation(msjInformation,"Information",null,"Update user completed\n");
+                    cleanUsers();
+                } else {
+                    MessageHandling.messagesError(msjError,"Error","Update error\n","Server error\n");
+                }
+            }
         }
         if(event.getSource() == btnCleanUser){
             cleanUsers();
@@ -231,7 +250,7 @@ public class MainController implements Initializable {
 
     private void loadDataTableUsers(){
         chargeDataTableUsers();
-        Callback<TableColumn<User, String>, TableCell<User, String>> cellFoctory = (TableColumn<User, String> param) -> {
+        Callback<TableColumn<User, String>, TableCell<User, String>> cellFactory = (TableColumn<User, String> param) -> {
             final TableCell<User, String> cell = new TableCell<>() {
                 @Override
                 public void updateItem(String item, boolean empty) {
@@ -252,6 +271,10 @@ public class MainController implements Initializable {
                             chargeDataEditUser();
                         });
 
+                        deleteIcon.setOnMouseClicked((MouseEvent) -> {
+                            btnDeleteUser();
+                        });
+
                         HBox managebtn = new HBox(editIcon, deleteIcon);
                         managebtn.setStyle("-fx-alignment:top-center;");
                         HBox.setMargin(deleteIcon, new Insets(5, 6, 5, 6));
@@ -264,12 +287,29 @@ public class MainController implements Initializable {
             };
             return cell;
         };
-        columnActionsUser.setCellFactory(cellFoctory);
+        columnActionsUser.setCellFactory(cellFactory);
         tableUsers.setItems(listUsersData);
     }
 
+    private void btnDeleteUser() {
+        Optional<ButtonType> result = MessageHandling.messageConfirmation(msjConfirmation,"Confirmation", "Do you want to delete the user?");
+        if(result.get() == ButtonType.OK){
+            user = tableUsers.getSelectionModel().getSelectedItem();
+            if (!loginDAO.deleteUserLogin(user.getId_user())){
+                MessageHandling.messagesError(msjError,"Error","Error when deleting login_user\n","Server error\n");
+                return;
+            }
+            if(userDAO.deleteUser(user.getId_user())){
+                MessageHandling.messagesInformation(msjInformation,"Information",null,"Delete user completed\n");
+                loadDataTableUsers();
+                cleanUsers();
+            } else {
+                MessageHandling.messagesError(msjError,"Error","Error when deleting user\n","Server error\n");
+            }
+        }
+    }
+
     private void chargeDataTableUsers() {
-        tableUsers.getItems().clear();
         tableUsers.getColumns().clear();
 
         listUsers = userDAO.findAllUser();
@@ -286,7 +326,6 @@ public class MainController implements Initializable {
         columnRolUser.setCellValueFactory(new PropertyValueFactory<>("rol"));
         tableUsers.setItems(listUsersData);
         tableUsers.getColumns().addAll(columnIdUser,columnNameUser,columnPSurnameUser,columnMSurnameUser,columnEmailUser,columnUsernameUser,columnPhoneUser,columnBirthdayUser,columnRolUser,columnActionsUser);
-
     }
 
     public void chargeDataEditUser(){
@@ -299,7 +338,7 @@ public class MainController implements Initializable {
         txtUserNameUser.setText(user.getUsername());
         txtPhoneUser.setText(user.getPhone());
         datePickerBirthdayUser.setValue(Validation.LOCAL_DATE(user.getBirthday()));
-        cbxRolUser.setPromptText(user.getRol());
+        cbxRolUser.getSelectionModel().select(user.getRol());
     }
 
     public void cleanUsers(){
@@ -314,6 +353,69 @@ public class MainController implements Initializable {
         cbxRolUser.getItems().clear();
         cbxRolUser.getItems().addAll(DataCBX.arrayRols());
         cbxRolUser.setPromptText("ROL");
+        txtSearchUser.setText("");
         loadDataTableUsers();
+        dynamicSearchUser();
+    }
+
+    private boolean validationFieldsUser() {
+        boolean vId = ValidationUser.validationId(txtidUser);
+        boolean vName = ValidationUser.validationName(txtNameUser);
+        boolean vPSurname = ValidationUser.validationPaternalSurname(txtPSurnameUser);
+        boolean vMSurname = ValidationUser.validationMaternalSurname(txtMSurnameUser);
+        boolean vEmail = ValidationUser.validationEmail(txtEmailUser);
+        boolean vUserName = ValidationUser.validationUserName(txtUserNameUser);
+        boolean vPhone = ValidationUser.validationPhone(txtPhoneUser);
+        boolean vBirthday = ValidationUser.validationDatePicker(datePickerBirthdayUser);
+        boolean vRol = ValidationUser.validationRol(cbxRolUser);
+        return vName && vPSurname && vMSurname && vEmail && vUserName && vPhone && vBirthday && vRol && vId;
+    }
+
+    private User recoverDataUser() {
+        User user = new User();
+        user.setId_user(Integer.parseInt(txtidUser.getText()));
+        user.setName(txtNameUser.getText());
+        user.setPaternalSurname(txtPSurnameUser.getText());
+        user.setMaternalSurname(txtMSurnameUser.getText());
+        user.setEmail(txtEmailUser.getText());
+        user.setUsername(txtUserNameUser.getText());
+        user.setPhone(txtPhoneUser.getText());
+        user.setBirthday(datePickerBirthdayUser.getValue().toString());
+        user.setRol(String.valueOf(cbxRolUser.getValue()));
+        return user;
+    }
+
+    private void dynamicSearchUser() {
+        //Search dynamic
+        FilteredList<User> filteredDataUser = new FilteredList<>(listUsersData, b->true);
+        txtSearchUser.textProperty().addListener((observable, oldValue, newValue) ->{
+            filteredDataUser.setPredicate(userSearchModel ->{
+
+                if(newValue.isEmpty() || newValue.isBlank() || newValue == null){
+                    return true;
+                }
+                //lower case for search fast
+                String searchKeyword = newValue.toLowerCase();
+
+                if(String.valueOf(userSearchModel.getId_user()).indexOf(searchKeyword) > -1){
+                    return true;
+                } else if (userSearchModel.getName().toLowerCase().indexOf(searchKeyword) > -1) {
+                    return true;
+                } else if (userSearchModel.getUsername().toLowerCase().indexOf(searchKeyword) > -1) {
+                    return true;
+                } else if (userSearchModel.getBirthday().indexOf(searchKeyword) > -1) {
+                    return true;
+                } else {
+                    return false; //no match found
+                }
+
+            });
+        });
+        //sorted list
+        SortedList<User>  sortedUserData = new SortedList<>(filteredDataUser);
+        //Bind sorted result
+        sortedUserData.comparatorProperty().bind(tableUsers.comparatorProperty());
+
+        tableUsers.setItems(sortedUserData);
     }
 }

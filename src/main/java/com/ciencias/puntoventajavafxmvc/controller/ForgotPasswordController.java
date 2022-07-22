@@ -6,7 +6,7 @@ import com.ciencias.puntoventajavafxmvc.DTO.User;
 import com.ciencias.puntoventajavafxmvc.MainApp;
 import com.ciencias.puntoventajavafxmvc.validation.Validation;
 import com.ciencias.puntoventajavafxmvc.validation.ValidationKeyPressed;
-import com.ciencias.puntoventajavafxmvc.validation.ValidationRegister;
+import com.ciencias.puntoventajavafxmvc.validation.ValidationUser;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
 import javafx.event.ActionEvent;
@@ -165,10 +165,10 @@ public class ForgotPasswordController implements Initializable {
         }
 
         if(event.getSource() == btnRecover){
-            if(validationFields()){
+            if(validationFieldsForgotPassword()){
                 User user = recoverData();
-                if(userDAO.forgotPassword(user)){
-                    if(userDAO.updatePassword(user)){
+                if(userDAO.forgotPasswordUser(user)){
+                    if(userDAO.updatePasswordUser(user)){
                         MessageHandling.messagesInformation(msjInformation,"Information",null,"Updated password\n");
                         viewLogin();
                     } else {
@@ -181,11 +181,11 @@ public class ForgotPasswordController implements Initializable {
         }
     }
 
-    private boolean validationFields() {
-        boolean vEmail = ValidationRegister.validationEmail(txtEmail);
-        boolean vUserName = ValidationRegister.validationUserName(txtUser);
-        boolean vBirthday = ValidationRegister.validationDatePicker(datePickerBirthday);
-        boolean vPassword = ValidationRegister.validationPassword(cont,txtPass,txtPassView);
+    private boolean validationFieldsForgotPassword() {
+        boolean vEmail = ValidationUser.validationEmail(txtEmail);
+        boolean vUserName = ValidationUser.validationUserName(txtUser);
+        boolean vBirthday = ValidationUser.validationDatePicker(datePickerBirthday);
+        boolean vPassword = ValidationUser.validationPassword(cont,txtPass,txtPassView);
         return vEmail && vUserName && vBirthday && vPassword;
     }
 

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXRadioButton?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
@@ -267,11 +267,6 @@
                      <Insets top="10.0" />
                   </VBox.margin>
                   <children>
-                     <RadioButton fx:id="rbMan" layoutX="1.0" layoutY="6.0" mnemonicParsing="false" onAction="#onActionEvents" styleClass="styleCursorHand" text="Man">
-                        <padding>
-                           <Insets left="2.0" />
-                        </padding></RadioButton>
-                     <RadioButton fx:id="rbWoman" layoutX="55.0" layoutY="6.0" mnemonicParsing="false" onAction="#onActionEvents" styleClass="styleCursorHand" text="Woman" />
                      <ComboBox fx:id="cbxDay" layoutX="1.0" layoutY="67.0" prefHeight="25.0" prefWidth="70.0" promptText="Day:">
                         <styleClass>
                            <String fx:value="styleRadius" />
@@ -288,6 +283,8 @@
                            <String fx:value="styleCursorHand" />
                         </styleClass></ComboBox>
                      <Label layoutX="1.0" layoutY="33.0" styleClass="textFieldLogin" text="Birthday:" />
+                     <JFXRadioButton fx:id="rbMan" layoutX="9.0" layoutY="6.0" onAction="#onActionEvents" text="Man" />
+                     <JFXRadioButton fx:id="rbWoman" layoutX="71.0" layoutY="6.0" onAction="#onActionEvents" text="Woman" />
                   </children>
                </Pane>
                <Button fx:id="btnRegister" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionEvents" prefHeight="45.0" prefWidth="272.0" styleClass="buttonSignin" text="Register">

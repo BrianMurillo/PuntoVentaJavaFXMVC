@@ -1,6 +1,6 @@
 package com.ciencias.puntoventajavafxmvc.DAO;
 
-import com.ciencias.puntoventajavafxmvc.DAO.conexion.ConexionBD;
+import com.ciencias.puntoventajavafxmvc.DAO.conexion.ConnectionBD;
 import com.ciencias.puntoventajavafxmvc.DTO.User;
 
 import java.sql.Connection;
@@ -18,7 +18,7 @@ public class UserDAO {
     public boolean saveUser(User user){
         String sql="INSERT INTO users(name,paternal_surname,maternal_surname,email,username,password,phone,gender,birthday,id_rol) VALUES (?,?,?,?,?,?,?,?,?,?)";
         try {
-            con = ConexionBD.connection();
+            con = ConnectionBD.connection();
             ps = con.prepareStatement(sql);
             ps.setString(1,user.getName());
             ps.setString(2,user.getPaternalSurname());
@@ -45,10 +45,71 @@ public class UserDAO {
         return true;
     }
 
-    public boolean validationEmail(String email){
+    public boolean updateUser(User user){
+        String sql="Update users set name=?, paternal_surname=?, maternal_surname=?, email=?, username=?,phone=?,birthday=?,id_rol=? where id_user=?";
+        try {
+            con = ConnectionBD.connection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1,user.getName());
+            ps.setString(2,user.getPaternalSurname());
+            ps.setString(3,user.getMaternalSurname());
+            ps.setString(4,user.getEmail());
+            ps.setString(5,user.getUsername());
+            ps.setString(6,user.getPhone());
+            ps.setString(7,user.getBirthday());
+            switch (user.getRol()){
+                case "ADMIN":
+                    user.setId_rol(1);
+                    ps.setInt(8, user.getId_rol());
+                    break;
+                case "ROOT":
+                    user.setId_rol(2);
+                    ps.setInt(8, user.getId_rol());
+                    break;
+                default:
+                    break;
+            }
+            ps.setInt(9, user.getId_user());
+            ps.execute();
+        } catch (SQLException e){
+            System.out.println(e.toString());
+            return false;
+        } finally {
+            try{
+                ps.close();
+                con.close();
+            } catch (SQLException ex){
+                System.out.println(ex.toString());
+            }
+        }
+        return true;
+    }
+
+    public boolean deleteUser(int id_user){
+        String sql = "Delete From users Where id_user=?";
+        try{
+            con = ConnectionBD.connection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id_user);
+            ps.execute();
+        } catch (SQLException | NullPointerException ex) {
+            System.out.println(ex.toString());
+            return false;
+        } finally {
+            try{
+                ps.close();
+                con.close();
+            } catch (SQLException | NullPointerException ex){
+                System.out.println(ex.toString());
+            }
+        }
+        return true;
+    }
+
+    public boolean validationEmailUser(String email){
         String sql = "Select name From users Where email=?";
         try{
-            con = ConexionBD.connection();
+            con = ConnectionBD.connection();
             ps = con.prepareStatement(sql);
             ps.setString(1,email);
             rs = ps.executeQuery();
@@ -69,11 +130,11 @@ public class UserDAO {
         return false;
     }
 
-    public String recuperationPass(String email){
+    public String recuperationPassUser(String email){
         String sql = "Select password from users where email=?";
         String pass = "";
         try{
-            con = ConexionBD.connection();
+            con = ConnectionBD.connection();
             ps = con.prepareStatement(sql);
             ps.setString(1,email);
             rs = ps.executeQuery();
@@ -99,7 +160,7 @@ public class UserDAO {
         String sql = "Select id_user from users where email=?";
         int idUser = 0;
         try{
-            con = ConexionBD.connection();
+            con = ConnectionBD.connection();
             ps = con.prepareStatement(sql);
             ps.setString(1,email);
             rs = ps.executeQuery();
@@ -121,10 +182,10 @@ public class UserDAO {
         return idUser;
     }
 
-    public boolean forgotPassword(User user){
+    public boolean forgotPasswordUser(User user){
         String sql = "Select * From users Where email=? and username=? and birthday=?";
         try{
-            con = ConexionBD.connection();
+            con = ConnectionBD.connection();
             ps = con.prepareStatement(sql);
             ps.setString(1, user.getEmail());
             ps.setString(2, user.getUsername());
@@ -147,10 +208,10 @@ public class UserDAO {
         return false;
     }
 
-    public boolean updatePassword(User user){
+    public boolean updatePasswordUser(User user){
         String sql = "Update users set password=? where email=? and username=? and birthday=?";
         try{
-            con = ConexionBD.connection();
+            con = ConnectionBD.connection();
             ps = con.prepareStatement(sql);
             ps.setString(1, user.getPassword());
             ps.setString(2, user.getEmail());
@@ -162,7 +223,6 @@ public class UserDAO {
             System.out.println(ex.toString());
         } finally {
             try{
-                rs.close();
                 ps.close();
                 con.close();
             } catch (SQLException | NullPointerException ex){
@@ -176,7 +236,7 @@ public class UserDAO {
         String sql = "Select id_user,name,paternal_surname,maternal_surname,email,username,phone,birthday,id_rol from users";
         ArrayList<User> listUsers = new ArrayList<>();
         try{
-            con = ConexionBD.connection();
+            con = ConnectionBD.connection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while(rs.next()){

@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ConexionBD {
+public class ConnectionBD {
     private static final String username="sa";
     private static final String pass="muso54";
     private static final String bd="pointsalebd";

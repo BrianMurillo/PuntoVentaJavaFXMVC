@@ -70,6 +70,17 @@
     -fx-font-family: "Yu Gothic UI";
 }
 
+.buttonNav:hover{
+    -fx-background-color: #F2F2F2;
+    -fx-background-radius: 10;
+}
+
+.buttonBorderHover:hover{
+    -fx-border-color: black;
+    -fx-border-radius: 10px;
+    -fx-border-width: .5;
+}
+
 .textFontStyle{
     -fx-font-family: "Yu Gothic UI";
 }
@@ -254,7 +265,7 @@
 
 .table-view .column-header-background {
     -fx-background-color: #87A7FF;
-    -fx-background-radius: 30px;
+    -fx-background-radius: 10px;
     -fx-background-insets: 0 0 10 0;
     -fx-padding: 0 0 10 0;
 }

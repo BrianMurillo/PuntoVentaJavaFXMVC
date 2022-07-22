@@ -7,7 +7,8 @@ import com.ciencias.puntoventajavafxmvc.DTO.User;
 import com.ciencias.puntoventajavafxmvc.validation.Validation;
 import com.ciencias.puntoventajavafxmvc.MainApp;
 import com.ciencias.puntoventajavafxmvc.validation.ValidationKeyPressed;
-import com.ciencias.puntoventajavafxmvc.validation.ValidationRegister;
+import com.ciencias.puntoventajavafxmvc.validation.ValidationUser;
+import com.jfoenix.controls.JFXRadioButton;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
 import javafx.event.ActionEvent;
@@ -61,10 +62,10 @@ public class RegisterController implements Initializable {
     private TextField txtPhone;
 
     @FXML
-    private RadioButton rbMan;
+    private JFXRadioButton rbMan;
 
     @FXML
-    private RadioButton rbWoman;
+    private JFXRadioButton rbWoman;
 
     @FXML
     private ComboBox cbxDay;
@@ -230,9 +231,9 @@ public class RegisterController implements Initializable {
     @FXML
     private void onActionEvents(ActionEvent event){
         if (event.getSource() == btnRegister){
-            if(validationFields()){
-                if(!userDAO.validationEmail(txtEmail.getText())){
-                    User user = recoverData();
+            if(validationFieldsRegister()){
+                if(!userDAO.validationEmailUser(txtEmail.getText())){
+                    User user = recoverDataUser();
                     if (userDAO.saveUser(user)) {
                         MessageHandling.messagesInformation(msjInformation,"Information",null,"Register Completed\n");
                         viewLogin();
@@ -290,7 +291,7 @@ public class RegisterController implements Initializable {
         stageRegister.close();
     }
 
-    private User recoverData() {
+    private User recoverDataUser() {
         User user = new User();
         user.setName(txtName.getText());
         user.setPaternalSurname(txtPaternalSurname.getText());
@@ -315,16 +316,16 @@ public class RegisterController implements Initializable {
         }
     }
 
-    private boolean validationFields() {
-        boolean vName = ValidationRegister.validationName(txtName);
-        boolean vPSurname = ValidationRegister.validationPaternalSurname(txtPaternalSurname);
-        boolean vMSurname = ValidationRegister.validationMaternalSurname(txtMaternalSurname);
-        boolean vEmail = ValidationRegister.validationEmail(txtEmail);
-        boolean vUserName = ValidationRegister.validationUserName(txtUsername);
-        boolean vPassword = ValidationRegister.validationPassword(cont,txtPassword,txtPasswordView);
-        boolean vPhone = ValidationRegister.validationPhone(txtPhone);
-        boolean vGender = ValidationRegister.validationGender(rbMan,rbWoman);
-        boolean vBirthday = ValidationRegister.validationBirthday(cbxDay,cbxMonth,cbxYear);
+    private boolean validationFieldsRegister() {
+        boolean vName = ValidationUser.validationName(txtName);
+        boolean vPSurname = ValidationUser.validationPaternalSurname(txtPaternalSurname);
+        boolean vMSurname = ValidationUser.validationMaternalSurname(txtMaternalSurname);
+        boolean vEmail = ValidationUser.validationEmail(txtEmail);
+        boolean vUserName = ValidationUser.validationUserName(txtUsername);
+        boolean vPassword = ValidationUser.validationPassword(cont,txtPassword,txtPasswordView);
+        boolean vPhone = ValidationUser.validationPhone(txtPhone);
+        boolean vGender = ValidationUser.validationGender(rbMan,rbWoman);
+        boolean vBirthday = ValidationUser.validationBirthday(cbxDay,cbxMonth,cbxYear);
         return vName && vPSurname && vMSurname && vEmail && vUserName && vPassword && vPhone && vGender &&vBirthday;
     }
 

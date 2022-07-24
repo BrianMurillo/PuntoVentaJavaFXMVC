@@ -187,7 +187,7 @@ public class MainController implements Initializable {
         }
         if(event.getSource() == btnUsers){
             tpContainer.getSelectionModel().select(tabUsers);
-            loadDataTableUsers();
+            cleanUsers();
         }
         //Methods user
         if(event.getSource() == btnUpdateUser){

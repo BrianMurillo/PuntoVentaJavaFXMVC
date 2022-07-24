@@ -323,13 +323,17 @@
                                     <Pane prefHeight="200.0" prefWidth="200.0">
                                        <children>
                                           <Separator layoutY="26.0" prefHeight="4.0" prefWidth="305.0" />
-                                          <DatePicker fx:id="datePickerBirthdayUser" editable="false" layoutX="-1.0" layoutY="2.0" prefHeight="25.0" prefWidth="305.0" promptText="DD/MM/YYYY" styleClass="textDashboard" />
+                                          <DatePicker fx:id="datePickerBirthdayUser" editable="false" layoutX="-1.0" layoutY="2.0" prefHeight="25.0" prefWidth="305.0" promptText="DD/MM/YYYY">
+                                             <styleClass>
+                                                <String fx:value="textDashboard" />
+                                                <String fx:value="styleCursorHand" />
+                                             </styleClass></DatePicker>
                                        </children>
                                     </Pane>
                                     <Pane prefHeight="200.0" prefWidth="200.0" />
                                     <Pane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <JFXComboBox fx:id="cbxRolUser" layoutX="148.0" layoutY="2.0" prefHeight="31.0" prefWidth="153.0" promptText="ROL" />
+                                          <JFXComboBox fx:id="cbxRolUser" layoutX="148.0" layoutY="2.0" prefHeight="31.0" prefWidth="153.0" promptText="ROL" styleClass="styleCursorHand" />
                                        </children>
                                     </Pane>
                                  </children>
